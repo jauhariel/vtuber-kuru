@@ -345,13 +345,13 @@
         .btn-action:active { transform: scale(.95); }
 
         .btn-kembali {
-            background: linear-gradient(135deg, #ff7b8f, #ff5470);
-            box-shadow: 0 8px 18px rgba(255, 84, 112, .35);
+            background: linear-gradient(135deg, #4fc3f7, #3f9dff);
+            box-shadow: 0 8px 18px rgba(79, 195, 247, .35);
         }
 
         .btn-reset {
-            background: linear-gradient(135deg, #4fc3f7, #3f9dff);
-            box-shadow: 0 8px 18px rgba(79, 195, 247, .35);
+            background: linear-gradient(135deg, #ff7b8f, #ff5470);
+            box-shadow: 0 8px 18px rgba(255, 84, 112, .35);
         }
 
         /* ---------- kombo & efek gameplay ---------- */
@@ -566,6 +566,58 @@
             box-shadow: 0 8px 18px rgba(143, 123, 255, .35);
         }
 
+        /* ---------- ikon svg ---------- */
+        .btn-play, .btn-action, #increment-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+        }
+
+        .btn-play svg, .btn-action svg, #increment-btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .combo-badge { display: inline-flex; align-items: center; gap: .35rem; }
+        .combo-badge svg { width: 15px; height: 15px; }
+
+        .key-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            flex-wrap: wrap;
+        }
+
+        .key-hint svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+        .subtitle svg {
+            width: 16px;
+            height: 16px;
+            vertical-align: -3px;
+            color: var(--accent-purple);
+        }
+
+        .modal-title { display: flex; align-items: center; gap: .5rem; }
+        .modal-title svg { width: 20px; height: 20px; }
+
+        .heart-icon {
+            width: 15px;
+            height: 15px;
+            vertical-align: -2px;
+            color: var(--accent-pink);
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .particle svg { width: 22px; height: 22px; }
+        .particle.c1 { color: var(--accent-pink); }
+        .particle.c2 { color: var(--accent-purple); }
+        .particle.c3 { color: var(--accent-blue); }
+        .particle.c4 { color: #ffc94d; }
+
         /* ---------- footer ---------- */
         .footer-wrap {
             display: flex;
@@ -656,16 +708,26 @@
     <header class="container-fluid pt-4 pb-2">
         <div class="d-flex text-center justify-content-center align-items-center gap-3 flex-wrap">
             <img src="aset/img/kaela.gif" alt="Kaela" class="header-gif">
-            <h1 class="judul-utama">~ Selamat datang di Vtuber Kuru ~</h1>
+            <h1 class="judul-utama" data-i18n="welcome">~ Selamat datang di Vtuber Kuru ~</h1>
             <img src="aset/img/zeta.gif" alt="Zeta" class="header-gif delay">
         </div>
-        <p class="subtitle text-center">Kuru Kuru &bull; Kururin &bull; Kira Kira 💫</p>
+        <p class="subtitle text-center"><span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                <path d="M20 3v4" />
+                <path d="M22 5h-4" />
+                <path d="M4 17v2" />
+                <path d="M5 18H3" />
+            </svg>
+        </p>
     </header>
 
     <main class="game-arena container">
         <div class="row">
             <div class="col-12 text-center judul-wrap">
-                <span class="judul">Pilih Karakter Vtuber</span>
+                <span class="judul" data-i18n="choose_char">Pilih Karakter Vtuber</span>
             </div>
         </div>
         <div class="menu-utama">
@@ -677,8 +739,8 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Kaela Kovalskia</h5>
-                            <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-kaela">⛏️ Mulai Bermain</a>
+                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                            <a href="#" class="btn-play play-kaela">⛏️ <span data-i18n="play">Mulai Bermain</span></a>
                         </div>
                     </div>
 
@@ -688,8 +750,8 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Kobo Kanaeru</h5>
-                            <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-kobo">☔ Mulai Bermain</a>
+                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                            <a href="#" class="btn-play play-kobo">☔ <span data-i18n="play">Mulai Bermain</span></a>
                         </div>
                     </div>
 
@@ -699,8 +761,8 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Vestia Zeta</h5>
-                            <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-zeta">🔍 Mulai Bermain</a>
+                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                            <a href="#" class="btn-play play-zeta">🔍 <span data-i18n="play">Mulai Bermain</span></a>
                         </div>
                     </div>
                 </div>
@@ -711,22 +773,73 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div id="counter">0</div>
-                    <div class="counter-label">Kali</div>
+                    <div class="counter-label" data-i18n="counter_label">Kali</div>
                     <div class="combo-badges">
-                        <span class="combo-badge" id="combo-badge">🔥 <span id="combo-count">0</span> Kombo</span>
+                        <span class="combo-badge" id="combo-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+                            </svg>
+                            <span id="combo-count">0</span> <span data-i18n="combo">Kombo</span>
+                        </span>
                         <span class="multiplier-badge" id="multiplier-badge">×1</span>
                     </div>
                     <div id="character"></div>
-                    <button id="increment-btn">🌀 Pencet Kurunya!</button>
+                    <button id="increment-btn">
+                        <span class="btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="23 4 23 10 17 10" />
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                            </svg>
+                        </span>
+                        <span class="btn-label" data-i18n="press_btn">Pencet Kurunya!</span>
+                    </button>
                     <div class="combo-bar-wrap"><div id="combo-bar"></div></div>
-                    <div class="key-hint">💡 Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih cepat!</div>
+                    <div class="key-hint">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                        <span data-i18n-html="key_hint">Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih cepat!</span>
+                    </div>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-12 d-flex justify-content-center gap-3">
-                    <button class="btn-action btn-kembali kembali">← Kembali</button>
-                    <button class="btn-action btn-share share-count">📤 Share</button>
-                    <button class="btn-action btn-reset reset-count">↺ Reset</button>
+                    <button class="btn-action btn-kembali kembali">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12" />
+                            <polyline points="12 19 5 12 12 5" />
+                        </svg>
+                        <span data-i18n="back">Kembali</span>
+                    </button>
+                    <button class="btn-action btn-share share-count">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                        </svg>
+                        <span data-i18n="share">Share</span>
+                    </button>
+                    <button class="btn-action btn-reset reset-count">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="1 4 1 10 7 10" />
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                        </svg>
+                        <span data-i18n="reset">Reset</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -743,7 +856,7 @@
                     d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
                 <circle cx="10" cy="8" r="2" />
             </svg>
-            <span>Tampilkan Kredit</span>
+            <span data-i18n="footer_credit">Tampilkan Kredit</span>
         </button>
 
         <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#statsModal">
@@ -755,7 +868,7 @@
                 <path d="M13 17V5" />
                 <path d="M8 17v-3" />
             </svg>
-            <span>Statistik</span>
+            <span data-i18n="footer_stats">Statistik</span>
         </button>
 
         <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#optionsModal">
@@ -766,7 +879,7 @@
                     d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
                 <circle cx="12" cy="12" r="3" />
             </svg>
-            <span>Pengaturan</span>
+            <span data-i18n="footer_settings">Pengaturan</span>
         </button>
 
         <a href="https://github.com/jauhariel/vtuber-kuru" target="_blank" class="footer-btn">
@@ -777,10 +890,10 @@
                     d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                 <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
-            <span>Github Repo</span>
+            <span data-i18n="footer_github">Github Repo</span>
         </a>
 
-        <p class="credit-line">Dibuat dengan 💜 oleh <strong>jauhariel</strong></p>
+        <p class="credit-line" data-i18n-html="credit_line">Dibuat dengan 💜 oleh <strong>jauhariel</strong></p>
     </footer>
 
     <div class="modal fade" id="credit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -788,7 +901,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="creditLabel">Kredit/Sumber</h5>
+                    <h5 class="modal-title" id="creditLabel" data-i18n="credit_title">Kredit/Sumber</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -842,13 +955,22 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="statsModalLabel">📊 Statistik Kuru</h5>
+                    <h5 class="modal-title" id="statsModalLabel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18" />
+                            <path d="M18 17V9" />
+                            <path d="M13 17V5" />
+                            <path d="M8 17v-3" />
+                        </svg>
+                        <span data-i18n="stats_title">Statistik Kuru</span>
+                    </h5>
                 </div>
                 <div class="modal-body">
                     <div class="stat-total-box">
-                        <div class="stat-total-label">Total Kuru Semua Karakter</div>
+                        <div class="stat-total-label" data-i18n="total_kuru">Total Kuru Semua Karakter</div>
                         <div class="stat-total-num" id="stat-total">0</div>
-                        <span class="stat-rank" id="stat-rank">🌱 Kuru Newbie</span>
+                        <span class="stat-rank" id="stat-rank">Kuru Newbie</span>
                     </div>
 
                     <div class="stat-row">
@@ -888,7 +1010,17 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-action btn-share" id="share-total">📤 Share Total</button>
+                    <button type="button" class="btn-action btn-share" id="share-total">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                        </svg>
+                        <span data-i18n="share_total_btn">Share Total</span>
+                    </button>
                     <button type="button" class="btn-action btn-kembali" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
@@ -900,14 +1032,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="optionsModalLabel">Pengaturan</h5>
+                    <h5 class="modal-title" id="optionsModalLabel" data-i18n="settings_title">Pengaturan</h5>
                 </div>
                 <div class="modal-body">
-                    <label for="theme-select" class="fw-bold mb-2">Pilih Tema:</label>
-                    <select id="theme-select" class="form-select">
-                        <option value="light">☀️ Light Mode</option>
-                        <option value="dark">🌙 Dark Mode</option>
-                    </select>
+                    <div class="mb-3">
+                        <label for="theme-select" class="fw-bold mb-2" data-i18n="choose_theme">Pilih Tema:</label>
+                        <select id="theme-select" class="form-select">
+                            <option value="light" data-i18n="light_mode">Light Mode</option>
+                            <option value="dark" data-i18n="dark_mode">Dark Mode</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="lang-select" class="fw-bold mb-2" data-i18n="choose_lang">Pilih Bahasa:</label>
+                        <select id="lang-select" class="form-select">
+                            <option value="id">Bahasa Indonesia</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-action btn-kembali" data-bs-dismiss="modal">Tutup</button>
@@ -933,8 +1075,249 @@
                 applyTheme(selectedTheme);
             });
 
+            // ==================== MULTI-BAHASA ====================
+            const i18n = {
+                id: {
+                    welcome: '~ Selamat datang di Vtuber Kuru ~',
+                    subtitle: 'Kuru Kuru • Kururin • Kira Kira',
+                    choose_char: 'Pilih Karakter Vtuber',
+                    char_desc: 'Vtuber Hololive ID Gen 3',
+                    play: 'Mulai Bermain',
+                    counter_label: 'Kali',
+                    pressed_title: 'Kurunya telah dipencet sebanyak',
+                    press_btn: 'Pencet Kurunya!',
+                    kuru_kuru: 'Kuru Kuru',
+                    kururin: 'Kururin',
+                    kira_kira: 'Kira Kira',
+                    combo: 'Kombo',
+                    key_hint: 'Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih cepat!',
+                    back: 'Kembali',
+                    share: 'Share',
+                    reset: 'Reset',
+                    footer_credit: 'Tampilkan Kredit',
+                    footer_stats: 'Statistik',
+                    footer_settings: 'Pengaturan',
+                    footer_github: 'Github Repo',
+                    credit_line: 'Dibuat dengan {heart} oleh <strong>jauhariel</strong>',
+                    credit_title: 'Kredit/Sumber',
+                    stats_title: 'Statistik Kuru',
+                    total_kuru: 'Total Kuru Semua Karakter',
+                    share_total_btn: 'Share Total',
+                    settings_title: 'Pengaturan',
+                    choose_theme: 'Pilih Tema:',
+                    choose_lang: 'Pilih Bahasa:',
+                    light_mode: 'Light Mode',
+                    dark_mode: 'Dark Mode',
+                    close: 'Tutup',
+                    swal_reset_title: 'Apa Kamu Yakin?',
+                    swal_reset_text: 'Kamu akan mereset progresmu dan tidak akan bisa mengembalikannya lagi!',
+                    swal_confirm: 'Yakin!',
+                    swal_cancel: 'Batal',
+                    swal_done_title: 'Tereset!',
+                    swal_done_text: 'Progresmu berhasil direset.',
+                    milestones: {
+                        100: '100 Kuru! Pemanasan dulu~',
+                        250: '250 Kuru! Makin panas!',
+                        500: '500 Kuru! Jari mulai berotot!',
+                        1000: '1.000 Kuru! Kuru Master!',
+                        2500: '2.500 Kuru! Luar biasa!',
+                        5000: '5.000 Kuru! Raja Kuru!',
+                        10000: '10.000 Kuru! Kuru Legend!',
+                        50000: '50.000 Kuru! Tak terhentikan!',
+                        100000: '100.000 Kuru?! Dedikasi level dewa!'
+                    },
+                    ranks: [
+                        [100000, 'Dewa Kuru'],
+                        [10000, 'Kuru Legend'],
+                        [5000, 'Raja Kuru'],
+                        [1000, 'Kuru Master'],
+                        [500, 'Kuru Addict'],
+                        [100, 'Kuru Enthusiast'],
+                        [0, 'Kuru Newbie']
+                    ],
+                    share_char: 'Aku sudah memencet kuru {name} sebanyak {count} kali!',
+                    share_total: 'Total kuruku sudah {total} kali! Rank-ku: {rank}'
+                }
+            };
+            i18n.en = {
+                welcome: '~ Welcome to Vtuber Kuru ~',
+                subtitle: 'Kuru Kuru • Kururin • Kira Kira',
+                choose_char: 'Choose Your Vtuber',
+                char_desc: 'Hololive ID Gen 3 Vtuber',
+                play: 'Start Playing',
+                counter_label: 'Times',
+                pressed_title: 'The kuru has been pressed',
+                press_btn: 'Press the Kuru!',
+                kuru_kuru: 'Kuru Kuru',
+                kururin: 'Kururin',
+                kira_kira: 'Kira Kira',
+                combo: 'Combo',
+                key_hint: 'Tip: press <kbd>Space</kbd> or <kbd>Enter</kbd> to kuru even faster!',
+                back: 'Back',
+                share: 'Share',
+                reset: 'Reset',
+                footer_credit: 'Show Credits',
+                footer_stats: 'Statistics',
+                footer_settings: 'Settings',
+                footer_github: 'Github Repo',
+                credit_line: 'Made with {heart} by <strong>jauhariel</strong>',
+                credit_title: 'Credits/Sources',
+                stats_title: 'Kuru Statistics',
+                total_kuru: 'Total Kuru Across All Characters',
+                share_total_btn: 'Share Total',
+                settings_title: 'Settings',
+                choose_theme: 'Choose Theme:',
+                choose_lang: 'Choose Language:',
+                light_mode: 'Light Mode',
+                dark_mode: 'Dark Mode',
+                close: 'Close',
+                swal_reset_title: 'Are You Sure?',
+                swal_reset_text: 'You will reset your progress and there is no way to get it back!',
+                swal_confirm: 'Yes!',
+                swal_cancel: 'Cancel',
+                swal_done_title: 'Reset!',
+                swal_done_text: 'Your progress has been reset.',
+                milestones: {
+                    100: '100 Kuru! Just warming up~',
+                    250: '250 Kuru! Heating up!',
+                    500: '500 Kuru! Finger muscles growing!',
+                    1000: '1,000 Kuru! Kuru Master!',
+                    2500: '2,500 Kuru! Amazing!',
+                    5000: '5,000 Kuru! Kuru King!',
+                    10000: '10,000 Kuru! Kuru Legend!',
+                    50000: '50,000 Kuru! Unstoppable!',
+                    100000: '100,000 Kuru?! God-tier dedication!'
+                },
+                ranks: [
+                    [100000, 'Kuru God'],
+                    [10000, 'Kuru Legend'],
+                    [5000, 'Kuru King'],
+                    [1000, 'Kuru Master'],
+                    [500, 'Kuru Addict'],
+                    [100, 'Kuru Enthusiast'],
+                    [0, 'Kuru Newbie']
+                ],
+                share_char: 'I pressed the kuru of {name} {count} times!',
+                share_total: 'My total kuru is {total} times! My rank: {rank}'
+            };
+
+            i18n.ja = {
+                welcome: '~ Vtuber Kuru へようこそ ~',
+                subtitle: 'くるくる • くるりん • キラキラ',
+                choose_char: 'Vtuberキャラを選んでね',
+                char_desc: 'ホロライブID 3期生',
+                play: 'スタート',
+                counter_label: '回',
+                pressed_title: 'くるくるを押した回数',
+                press_btn: 'くるくるを押して！',
+                kuru_kuru: 'くるくる',
+                kururin: 'くるりん',
+                kira_kira: 'キラキラ',
+                combo: 'コンボ',
+                key_hint: 'ヒント: <kbd>スペース</kbd>か<kbd>Enter</kbd>でもっと速く押せるよ！',
+                back: '戻る',
+                share: 'シェア',
+                reset: 'リセット',
+                footer_credit: 'クレジット',
+                footer_stats: '統計',
+                footer_settings: '設定',
+                footer_github: 'Githubリポジトリ',
+                credit_line: '<strong>jauhariel</strong> が {heart} を込めて制作',
+                credit_title: 'クレジット/出典',
+                stats_title: 'くるくる統計',
+                total_kuru: '全キャラの合計くるくる',
+                share_total_btn: '合計をシェア',
+                settings_title: '設定',
+                choose_theme: 'テーマ:',
+                choose_lang: '言語:',
+                light_mode: 'ライトモード',
+                dark_mode: 'ダークモード',
+                close: '閉じる',
+                swal_reset_title: '本当にいいの？',
+                swal_reset_text: '進捗がリセットされ、元に戻せません！',
+                swal_confirm: 'はい！',
+                swal_cancel: 'キャンセル',
+                swal_done_title: 'リセット完了！',
+                swal_done_text: '進捗がリセットされました。',
+                milestones: {
+                    100: '100くるくる！ウォーミングアップ〜',
+                    250: '250くるくる！ヒートアップ！',
+                    500: '500くるくる！指が筋肉痛！',
+                    1000: '1,000くるくる！くるくるマスター！',
+                    2500: '2,500くるくる！すごい！',
+                    5000: '5,000くるくる！くるくるキング！',
+                    10000: '10,000くるくる！くるくるレジェンド！',
+                    50000: '50,000くるくる！止まらない！',
+                    100000: '100,000くるくる?! 神レベル！'
+                },
+                ranks: [
+                    [100000, 'くるくる神'],
+                    [10000, 'くるくるレジェンド'],
+                    [5000, 'くるくるキング'],
+                    [1000, 'くるくるマスター'],
+                    [500, 'くるくる中毒'],
+                    [100, 'くるくる好き'],
+                    [0, 'くるくる初心者']
+                ],
+                share_char: '{name}のくるくるを{count}回押したよ！',
+                share_total: 'くるくる合計{total}回！ランク：{rank}'
+            };
+
+            let currentLang = localStorage.getItem('lang') || 'id';
+
+            // Ambil teks terjemahan (fallback ke Indonesia)
+            function t(key) {
+                return (i18n[currentLang] && i18n[currentLang][key]) || i18n.id[key] || key;
+            }
+
+            // Format angka sesuai locale bahasa aktif
+            function fmtNum(n) {
+                return n.toLocaleString({ id: 'id-ID', en: 'en-US', ja: 'ja-JP' }[currentLang] || 'id-ID');
+            }
+
+            // Isi placeholder {nama} pada template
+            function fmt(template, vars) {
+                return template.replace(/\{(\w+)\}/g, function (_, k) { return vars[k]; });
+            }
+
+            // Terapkan bahasa ke seluruh elemen
+            function applyLang(lang) {
+                if (!i18n[lang]) lang = 'id';
+                currentLang = lang;
+                localStorage.setItem('lang', lang);
+                document.documentElement.lang = lang;
+                $('#lang-select').val(lang);
+                $('[data-i18n]').each(function () {
+                    $(this).text(t($(this).data('i18n')));
+                });
+                $('[data-i18n-html]').each(function () {
+                    $(this).html(fmt(t($(this).data('i18nHtml')), { heart: ICONS.heartSm }));
+                });
+                $('[data-bs-dismiss="modal"]').text(t('close'));
+                // Judul section sesuai state tampilan saat ini
+                $('.judul').text($('.gameplay').is(':visible') ? t('pressed_title') : t('choose_char'));
+            }
+
+            // Ganti bahasa saat dropdown berubah
+            $('#lang-select').on('change', function () {
+                applyLang($(this).val());
+            });
+
+            // Kumpulan ikon SVG yang dipakai ulang lewat JS
+            const SVG_OPEN = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
+            const ICONS = {
+                spin: SVG_OPEN + '<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
+                sparkles: SVG_OPEN + '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>',
+                star: SVG_OPEN + '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+                music: SVG_OPEN + '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+                heart: SVG_OPEN + '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+                heartSm: '<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+            };
+
             // Sembunyikan elemen gameplay pada awalnya
             $(".gameplay").hide();
+
+            applyLang(currentLang); // Terapkan bahasa tersimpan
 
             // Toast kecil untuk notifikasi milestone
             const Toast = Swal.mixin({
@@ -945,33 +1328,25 @@
                 timerProgressBar: true
             });
 
-            // Daftar milestone kuru
-            const milestones = [
-                { at: 100, msg: '🎉 100 Kuru! Pemanasan dulu~' },
-                { at: 250, msg: '🔥 250 Kuru! Makin panas!' },
-                { at: 500, msg: '💪 500 Kuru! Jari mulai berotot!' },
-                { at: 1000, msg: '🏆 1.000 Kuru! Kuru Master!' },
-                { at: 2500, msg: '🌟 2.500 Kuru! Luar biasa!' },
-                { at: 5000, msg: '👑 5.000 Kuru! Raja Kuru!' },
-                { at: 10000, msg: '💎 10.000 Kuru! Kuru Legend!' },
-                { at: 50000, msg: '🌈 50.000 Kuru! Tak terhentikan!' },
-                { at: 100000, msg: '🚀 100.000 Kuru?! Dedikasi level dewa!' }
-            ];
+            // Angka-angka milestone kuru (pesannya ada di kamus i18n)
+            const milestoneAts = [100, 250, 500, 1000, 2500, 5000, 10000, 50000, 100000];
 
             // Tampilkan toast jika hitungan melewati milestone
             function checkMilestone(prev, now) {
-                const hit = milestones.find(m => prev < m.at && now >= m.at);
-                if (hit) Toast.fire({ icon: 'success', title: hit.msg });
+                const hit = milestoneAts.find(at => prev < at && now >= at);
+                if (hit) Toast.fire({ icon: 'success', title: t('milestones')[hit] });
             }
 
             // Efek partikel emoji meledak dari titik (x, y)
             function spawnParticles(x, y, amount) {
                 if ($('.particle').length > 60) return; // batasi agar tidak berat
-                const emojis = ['✨', '💫', '🌀', '⭐', '💖', '🎵'];
+                const icons = [ICONS.sparkles, ICONS.star, ICONS.music, ICONS.heart];
+                const colors = ['c1', 'c2', 'c3', 'c4'];
                 for (let i = 0; i < amount; i++) {
                     const angle = Math.random() * Math.PI * 2;
                     const dist = 60 + Math.random() * 90;
-                    const $p = $('<span class="particle">' + emojis[Math.floor(Math.random() * emojis.length)] + '</span>');
+                    const $p = $('<span class="particle ' + colors[Math.floor(Math.random() * colors.length)] + '">'
+                        + icons[Math.floor(Math.random() * icons.length)] + '</span>');
                     $p.css({
                         left: x + 'px',
                         top: y + 'px',
@@ -1013,15 +1388,13 @@
                 return parseInt(localStorage.getItem(key)) || 0;
             }
 
-            // Gelar rank berdasarkan total kuru
+            // Gelar rank berdasarkan total kuru (sesuai bahasa aktif)
             function getRank(total) {
-                if (total >= 100000) return '🌈 Dewa Kuru';
-                if (total >= 10000) return '💎 Kuru Legend';
-                if (total >= 5000) return '👑 Raja Kuru';
-                if (total >= 1000) return '🏆 Kuru Master';
-                if (total >= 500) return '🔥 Kuru Addict';
-                if (total >= 100) return '🌀 Kuru Enthusiast';
-                return '🌱 Kuru Newbie';
+                const ranks = t('ranks');
+                for (let i = 0; i < ranks.length; i++) {
+                    if (total >= ranks[i][0]) return ranks[i][1];
+                }
+                return ranks[ranks.length - 1][1];
             }
 
             // Perbarui isi modal statistik
@@ -1029,11 +1402,11 @@
                 const chars = ['kaela', 'kobo', 'zeta'];
                 const counts = chars.map(c => getCount(c + 'count'));
                 const total = counts.reduce((a, b) => a + b, 0);
-                $('#stat-total').text(total.toLocaleString('id-ID'));
+                $('#stat-total').text(fmtNum(total));
                 $('#stat-rank').text(getRank(total));
                 chars.forEach(function (c, i) {
                     const pct = total ? Math.round(counts[i] / total * 100) : 0;
-                    $('#stat-count-' + c).text(counts[i].toLocaleString('id-ID'));
+                    $('#stat-count-' + c).text(fmtNum(counts[i]));
                     $('#stat-pct-' + c).text(pct + '%');
                     $('#stat-bar-' + c).css('width', pct + '%');
                 });
@@ -1058,7 +1431,7 @@
             // Bagikan total kuru dari modal statistik
             $('#share-total').on('click', function () {
                 const total = getCount('kaelacount') + getCount('kobocount') + getCount('zetacount');
-                shareKuru('Total kuruku sudah ' + total.toLocaleString('id-ID') + ' kali! Rank-ku: ' + getRank(total) + ' 🌀✨');
+                shareKuru(fmt(t('share_total'), { total: fmtNum(total), rank: getRank(total) }));
             });
 
             // Menangani klik tombol kembali
@@ -1066,7 +1439,7 @@
                 $(".gameplay").fadeOut(200, function () {
                     $(".menu-utama").fadeIn(200); // Tampilkan menu utama
                 });
-                $(".judul").text("Pilih Karakter Vtuber"); // Ubah judul
+                $(".judul").text(t("choose_char")); // Ubah judul
             });
 
             // Fungsi untuk mengatur permainan dengan karakter dan musik tertentu
@@ -1074,11 +1447,11 @@
                 $(".menu-utama").fadeOut(200, function () {
                     $(".gameplay").fadeIn(200); // Tampilkan elemen gameplay
                 });
-                $(".judul").text("Kurunya telah dipencet sebanyak"); // Ubah judul
+                $(".judul").text(t("pressed_title")); // Ubah judul
 
                 // Ambil jumlah dari localStorage atau set ke 0 jika belum ada
                 let count = localStorage.getItem(localStorageKey) ? parseInt(localStorage.getItem(localStorageKey)) : 0;
-                $('#counter').text(count.toLocaleString('id-ID')); // Tampilkan jumlah saat ini
+                $('#counter').text(fmtNum(count)); // Tampilkan jumlah saat ini
 
                 // Status kombo
                 const COMBO_WINDOW = 1500; // jeda maksimal antar pencet (ms)
@@ -1123,7 +1496,7 @@
                 // Bagikan progres karakter ini
                 $('.share-count').off('click').on('click', function () {
                     const names = { kaela: 'Kaela Kovalskia', kobo: 'Kobo Kanaeru', zeta: 'Vestia Zeta' };
-                    shareKuru('Aku sudah memencet kuru ' + names[character] + ' sebanyak ' + count.toLocaleString('id-ID') + ' kali! 🌀✨');
+                    shareKuru(fmt(t('share_char'), { name: names[character], count: fmtNum(count) }));
                 });
 
                 // Fungsi untuk mendapatkan musik secara acak dari daftar
@@ -1141,7 +1514,7 @@
 
                     const prevCount = count;
                     count += multiplier; // Tambah hitungan sesuai multiplier
-                    $('#counter').text(count.toLocaleString('id-ID')); // Perbarui tampilan hitungan
+                    $('#counter').text(fmtNum(count)); // Perbarui tampilan hitungan
                     localStorage.setItem(localStorageKey, count); // Simpan hitungan baru ke localStorage
 
                     checkMilestone(prevCount, count); // Cek milestone
@@ -1170,19 +1543,24 @@
                         $(this).remove(); // Hapus gambar setelah animasi selesai
                     });
 
-                    // Dapatkan musik acak dan ubah teks tombol berdasarkan musik
+                    // Dapatkan musik acak dan ubah ikon & teks tombol berdasarkan musik
                     let randomMusic = getRandomMusic();
                     let buttonText;
+                    let buttonIcon;
 
                     if (randomMusic.includes('kuru.mp3')) {
-                        buttonText = '🌀 Kuru Kuru';
+                        buttonText = t('kuru_kuru');
+                        buttonIcon = ICONS.spin;
                     } else if (randomMusic.includes('kururin.mp3')) {
-                        buttonText = '💫 Kururin';
+                        buttonText = t('kururin');
+                        buttonIcon = ICONS.sparkles;
                     } else if (randomMusic.includes('kira.mp3')) {
-                        buttonText = '✨ Kira Kira';
+                        buttonText = t('kira_kira');
+                        buttonIcon = ICONS.star;
                     }
 
-                    $('#increment-btn').text(buttonText); // Perbarui teks tombol
+                    $('#increment-btn .btn-icon').html(buttonIcon); // Perbarui ikon tombol
+                    $('#increment-btn .btn-label').text(buttonText); // Perbarui teks tombol
                     new Audio(randomMusic).play(); // Mainkan musik acak
 
                     this.blur(); // Lepaskan fokus agar spasi/enter tidak terpicu dua kali
@@ -1192,14 +1570,14 @@
                 $(".reset-count").off('click').on("click", function () {
                     // Tampilkan konfirmasi sebelum mereset
                     Swal.fire({
-                        title: "Apa Kamu Yakin?",
-                        text: "Kamu akan mereset progresmu dan tidak akan bisa mengembalikannya lagi!",
+                        title: t('swal_reset_title'),
+                        text: t('swal_reset_text'),
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Yakin!",
-                        cancelButtonText: "Batal"
+                        confirmButtonText: t('swal_confirm'),
+                        cancelButtonText: t('swal_cancel')
                     }).then((result) => {
                         if (result.isConfirmed) {
                             localStorage.setItem(localStorageKey, 0); // Reset hitungan di localStorage
@@ -1207,8 +1585,8 @@
                             resetCombo(); // Kombo juga direset
                             $('#counter').text(0); // Perbarui tampilan hitungan
                             Swal.fire({
-                                title: "Tereset!",
-                                text: "Progresmu berhasil direset.",
+                                title: t('swal_done_title'),
+                                text: t('swal_done_text'),
                                 icon: "success"
                             });
                         }
