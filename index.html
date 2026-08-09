@@ -17,69 +17,467 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <style>
+        :root {
+            --accent-pink: #ff6fb5;
+            --accent-purple: #8f7bff;
+            --accent-blue: #4fc3f7;
+            --text: #3d3654;
+            --text-soft: #857ea8;
+            --bg-1: #fdf1f7;
+            --bg-2: #eef3ff;
+            --bg-3: #e9fbf3;
+            --card-bg: rgba(255, 255, 255, .75);
+            --card-border: rgba(255, 255, 255, .9);
+            --arena-bg: rgba(255, 255, 255, .6);
+            --track-bg: rgba(143, 123, 255, .07);
+            --track-border: rgba(143, 123, 255, .35);
+            --footer-btn-bg: rgba(255, 255, 255, .7);
+            --modal-bg: #ffffff;
+            --modal-muted: #f6f4fc;
+            --shadow-soft: 0 20px 45px rgba(143, 123, 255, .18);
+            --blob-opacity: .55;
+        }
+
+        body.dark {
+            --text: #ece9fb;
+            --text-soft: #a9a3cf;
+            --bg-1: #17122e;
+            --bg-2: #1d1840;
+            --bg-3: #121c31;
+            --card-bg: rgba(40, 34, 76, .75);
+            --card-border: rgba(255, 255, 255, .08);
+            --arena-bg: rgba(31, 26, 61, .6);
+            --track-bg: rgba(255, 255, 255, .05);
+            --track-border: rgba(255, 255, 255, .18);
+            --footer-btn-bg: rgba(255, 255, 255, .07);
+            --modal-bg: #262052;
+            --modal-muted: #2e2760;
+            --shadow-soft: 0 20px 45px rgba(0, 0, 0, .45);
+            --blob-opacity: .3;
+        }
+
+        * {
+            font-family: 'Nunito', system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
+            background-attachment: fixed;
+            transition: background .5s ease, color .5s ease;
+        }
+
+        /* ---------- dekorasi background ---------- */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: var(--blob-opacity);
+            z-index: -1;
+            pointer-events: none;
+            transition: opacity .5s ease;
+        }
+
+        .blob.b1 { width: 380px; height: 380px; background: #ffc2e0; top: -100px; left: -100px; }
+        .blob.b2 { width: 320px; height: 320px; background: #c3b6ff; top: 35%; right: -120px; }
+        .blob.b3 { width: 300px; height: 300px; background: #b5ecff; bottom: -100px; left: 25%; }
+
+        /* ---------- header ---------- */
+        .header-gif {
+            width: 90px;
+            filter: drop-shadow(0 8px 14px rgba(61, 54, 84, .25));
+            animation: floaty 3s ease-in-out infinite;
+        }
+
+        .header-gif.delay { animation-delay: 1.5s; }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .judul-utama {
+            font-weight: 900;
+            font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .subtitle {
+            color: var(--text-soft);
+            font-weight: 700;
+            letter-spacing: .5px;
+            margin-top: .35rem;
+        }
+
+        /* ---------- arena ---------- */
+        .game-arena {
+            max-width: 1100px;
+            background: var(--arena-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 2rem;
+            box-shadow: var(--shadow-soft);
+            padding: 2rem 1.5rem;
+            transition: background .5s ease, border .5s ease;
+        }
+
+        .judul {
+            display: inline-block;
+            font-weight: 900;
+            font-size: clamp(1.15rem, 3vw, 1.6rem);
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .judul-wrap {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .judul-wrap::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 4px;
+            margin: .5rem auto 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
+        }
+
+        /* ---------- kartu karakter ---------- */
+        .char-card {
+            width: 18rem;
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(61, 54, 84, .10);
+            transition: transform .3s ease, box-shadow .3s ease, background .5s ease;
+        }
+
+        .char-card:hover { transform: translateY(-10px) scale(1.02); }
+
+        .card-kaela:hover { box-shadow: 0 22px 45px rgba(245, 183, 66, .40); }
+        .card-kobo:hover { box-shadow: 0 22px 45px rgba(79, 164, 247, .40); }
+        .card-zeta:hover { box-shadow: 0 22px 45px rgba(148, 163, 184, .45); }
+
+        .card-img-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 190px;
+            padding: 1rem;
+        }
+
+        .card-kaela .card-img-wrap { background: linear-gradient(135deg, #fff3d0, #ffdf9e); }
+        .card-kobo .card-img-wrap { background: linear-gradient(135deg, #d9f0ff, #aedaff); }
+        .card-zeta .card-img-wrap { background: linear-gradient(135deg, #eef1f5, #ccd4dd); }
+
+        body.dark .card-kaela .card-img-wrap { background: linear-gradient(135deg, #4a3a14, #6b5320); }
+        body.dark .card-kobo .card-img-wrap { background: linear-gradient(135deg, #173a5c, #1f5790); }
+        body.dark .card-zeta .card-img-wrap { background: linear-gradient(135deg, #3a4150, #5a6577); }
+
+        .card-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .15));
+            transition: transform .3s ease;
+        }
+
+        .char-card:hover .card-img-wrap img { transform: scale(1.08) rotate(-2deg); }
+
+        .char-card .card-body {
+            background: transparent;
+            text-align: center;
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-weight: 900;
+            color: var(--text);
+        }
+
+        .card-text {
+            color: var(--text-soft);
+            font-weight: 600;
+            font-size: .92rem;
+        }
+
+        .btn-play {
+            display: inline-block;
+            border: none;
+            border-radius: 999px;
+            padding: .6rem 1.6rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+        }
+
+        .btn-play:hover { transform: translateY(-3px); filter: brightness(1.05); }
+        .btn-play:active { transform: scale(.95); }
+
+        .card-kaela .btn-play {
+            background: linear-gradient(135deg, #ffc94d, #ff9d3f);
+            color: #5a3b00;
+            box-shadow: 0 8px 18px rgba(255, 170, 50, .45);
+        }
+
+        .card-kobo .btn-play {
+            background: linear-gradient(135deg, #5bb8ff, #3f7bff);
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(80, 140, 255, .45);
+        }
+
+        .card-zeta .btn-play {
+            background: linear-gradient(135deg, #b6c2cf, #7d8ea3);
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(125, 142, 163, .45);
+        }
+
+        /* ---------- gameplay ---------- */
+        #counter {
+            font-size: clamp(3rem, 9vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #counter.pop { animation: pop .25s ease; }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        .counter-label {
+            color: var(--text-soft);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: .85rem;
+        }
+
         #character {
             position: relative;
             height: 200px;
-            margin-top: 20px;
+            max-width: 720px;
+            margin: 1.25rem auto;
             overflow: hidden;
+            border-radius: 1.25rem;
+            background: var(--track-bg);
+            border: 2px dashed var(--track-border);
+            transition: background .5s ease, border .5s ease;
         }
 
         .image {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: -100px;
+            right: -220px;
             width: 200px;
-            /* start outside the right side */
+        }
+
+        #increment-btn {
+            border: none;
+            border-radius: 999px;
+            padding: .9rem 2.6rem;
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            box-shadow: 0 12px 28px rgba(255, 111, 181, .45);
+            transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+        }
+
+        #increment-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            filter: brightness(1.06);
+            box-shadow: 0 16px 32px rgba(143, 123, 255, .5);
+        }
+
+        #increment-btn:active { transform: scale(.93); }
+
+        .btn-action {
+            border: none;
+            border-radius: 999px;
+            padding: .55rem 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            transition: transform .2s ease, filter .2s ease;
+        }
+
+        .btn-action:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .btn-action:active { transform: scale(.95); }
+
+        .btn-kembali {
+            background: linear-gradient(135deg, #ff7b8f, #ff5470);
+            box-shadow: 0 8px 18px rgba(255, 84, 112, .35);
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #4fc3f7, #3f9dff);
+            box-shadow: 0 8px 18px rgba(79, 195, 247, .35);
+        }
+
+        /* ---------- footer ---------- */
+        .footer-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .8rem;
+            padding: 1.5rem 1rem .5rem;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .7rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid var(--card-border);
+            background: var(--footer-btn-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--text);
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform .25s ease, box-shadow .25s ease, color .25s ease, background .5s ease;
+        }
+
+        .footer-btn:hover {
+            transform: translateY(-3px);
+            color: var(--accent-purple);
+            box-shadow: 0 10px 22px rgba(143, 123, 255, .25);
+        }
+
+        .credit-line {
+            width: 100%;
+            text-align: center;
+            color: var(--text-soft);
+            font-weight: 600;
+            font-size: .9rem;
+            margin-top: .8rem;
+        }
+
+        /* ---------- modal ---------- */
+        .modal-content {
+            border: none;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: var(--modal-bg);
+            color: var(--text);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--track-border);
+            background: var(--modal-muted);
+        }
+
+        .modal-footer { border-top: 1px solid var(--track-border); }
+
+        .modal-title { font-weight: 900; }
+
+        .modal-body h5 { font-weight: 900; }
+
+        body.dark .form-select {
+            background-color: #322a66;
+            color: var(--text);
+            border-color: rgba(255, 255, 255, .15);
+        }
+
+        /* ---------- scrollbar ---------- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--accent-pink), var(--accent-purple));
+        }
+
+        @media (max-width: 576px) {
+            .header-gif { width: 64px; }
+            .game-arena { padding: 1.5rem 1rem; border-radius: 1.5rem; }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="d-flex text-center justify-content-center align-items-center">
-                <img src="aset/img/kaela.gif" alt="" style="width: 100px;">
-                <span class="h4 col-4">~ Selamat datang di Vtuber Kuru ~</span>
-                <img src="aset/img/zeta.gif" alt="" style="width: 100px;">
-            </div>
-        </div>
-    </div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
 
-    <div class="game-arena container-fluid bg-warning-subtle py-4 rounded-5 border border-5">
+    <header class="container-fluid pt-4 pb-2">
+        <div class="d-flex text-center justify-content-center align-items-center gap-3 flex-wrap">
+            <img src="aset/img/kaela.gif" alt="Kaela" class="header-gif">
+            <h1 class="judul-utama">~ Selamat datang di Vtuber Kuru ~</h1>
+            <img src="aset/img/zeta.gif" alt="Zeta" class="header-gif delay">
+        </div>
+        <p class="subtitle text-center">Kuru Kuru &bull; Kururin &bull; Kira Kira 💫</p>
+    </header>
+
+    <main class="game-arena container">
         <div class="row">
-            <div class="col-12 h4 text-center judul">
-                Pilih Karakter Vtuber
+            <div class="col-12 text-center judul-wrap">
+                <span class="judul">Pilih Karakter Vtuber</span>
             </div>
         </div>
         <div class="menu-utama">
             <div class="row mt-2">
-                <div class="d-flex justify-content-evenly flex-wrap text-center">
-                    <div class="card mt-3 bg-transparent border border-warning" style="width: 18rem;">
-                        <img class="card-img-top" src="aset/img/kaela.gif" alt="">
-                        <div class="card-body bg-light">
+                <div class="d-flex justify-content-evenly flex-wrap text-center gap-2">
+                    <div class="card char-card card-kaela mt-3">
+                        <div class="card-img-wrap">
+                            <img src="aset/img/kaela.gif" alt="Kaela Kovalskia">
+                        </div>
+                        <div class="card-body">
                             <h5 class="card-title">Kaela Kovalskia</h5>
                             <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn btn-outline-warning play-kaela">Mulai Bermain</a>
+                            <a href="#" class="btn-play play-kaela">⛏️ Mulai Bermain</a>
                         </div>
                     </div>
 
-                    <div class="card mt-3 bg-transparent border border-info" style="width: 18rem;">
-                        <img class="card-img-top" src="aset/img/kobo.gif" alt="">
-                        <div class="card-body bg-light">
+                    <div class="card char-card card-kobo mt-3">
+                        <div class="card-img-wrap">
+                            <img src="aset/img/kobo.gif" alt="Kobo Kanaeru">
+                        </div>
+                        <div class="card-body">
                             <h5 class="card-title">Kobo Kanaeru</h5>
                             <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn btn-outline-primary play-kobo">Mulai Bermain</a>
+                            <a href="#" class="btn-play play-kobo">☔ Mulai Bermain</a>
                         </div>
                     </div>
 
-                    <div class="card mt-3 bg-transparent border border-secondary-subtle" style="width: 18rem;">
-                        <img src="aset/img/zeta.gif" class="card-img-top" alt="...">
-                        <div class="card-body bg-light">
+                    <div class="card char-card card-zeta mt-3">
+                        <div class="card-img-wrap">
+                            <img src="aset/img/zeta.gif" alt="Vestia Zeta">
+                        </div>
+                        <div class="card-body">
                             <h5 class="card-title">Vestia Zeta</h5>
                             <p class="card-text">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn btn-outline-secondary play-zeta">Mulai Bermain</a>
+                            <a href="#" class="btn-play play-zeta">🔍 Mulai Bermain</a>
                         </div>
                     </div>
                 </div>
@@ -89,68 +487,59 @@
         <div class="gameplay">
             <div class="row">
                 <div class="col-12 text-center">
-                    <div id="counter" class="h4">0</div>
-                    <div>Kali</div>
+                    <div id="counter">0</div>
+                    <div class="counter-label">Kali</div>
                     <div id="character"></div>
-                    <button id="increment-btn" class="btn btn-primary">Pencet Kurunya</button>
+                    <button id="increment-btn">🌀 Pencet Kurunya!</button>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-12 text-center">
-                    <button class="btn btn-danger kembali">Kembali</button>
-                    <button class="btn btn-info reset-count">Reset</button>
+            <div class="row mt-4">
+                <div class="col-12 d-flex justify-content-center gap-3">
+                    <button class="btn-action btn-kembali kembali">← Kembali</button>
+                    <button class="btn-action btn-reset reset-count">↺ Reset</button>
                 </div>
             </div>
         </div>
 
-    </div>
+    </main>
 
-    <div class="container-fluid py-4">
-        <div class="row">
+    <footer class="footer-wrap container">
+        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#credit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-book-image">
+                <path d="m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17" />
+                <path
+                    d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                <circle cx="10" cy="8" r="2" />
+            </svg>
+            <span>Tampilkan Kredit</span>
+        </button>
 
-            <div class="col-12 d-flex justify-content-center">
-                <button class="footer btn btn-outline-dark w-50 d-flex align-items-center justify-content-center"
-                    data-bs-toggle="modal" data-bs-target="#credit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-book-image">
-                        <path d="m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17" />
-                        <path
-                            d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-                        <circle cx="10" cy="8" r="2" />
-                    </svg>
-                    <span>Tampilkan Kredit</span>
-                </button>
-            </div>
+        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#optionsModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-settings">
+                <path
+                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span>Pengaturan</span>
+        </button>
 
-            <div class="col-12 d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#optionsModal">
-                <button class="footer btn btn-outline-dark w-50 d-flex align-items-center justify-content-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-settings">
-                        <path
-                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-                        <circle cx="12" cy="12" r="3" />
-                    </svg>
-                    <span>Pengaturan</span>
-                </button>
-            </div>
+        <a href="https://github.com/jauhariel/vtuber-kuru" target="_blank" class="footer-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-github">
+                <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+            <span>Github Repo</span>
+        </a>
 
-            <div class="col-12 d-flex justify-content-center">
-                <a href="https://github.com/jauhariel/vtuber-kuru" target="_blank"
-                    class="footer btn btn-outline-dark w-50 d-flex align-items-center justify-content-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-github">
-                        <path
-                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                    <span>Github Repo</span>
-                </a>
-            </div>
-        </div>
-    </div>
+        <p class="credit-line">Dibuat dengan 💜 oleh <strong>jauhariel</strong></p>
+    </footer>
 
     <div class="modal fade" id="credit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="creditLabel" aria-hidden="true">
@@ -200,7 +589,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn-action btn-kembali" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -214,14 +603,14 @@
                     <h5 class="modal-title" id="optionsModalLabel">Pengaturan</h5>
                 </div>
                 <div class="modal-body">
-                    <label for="theme-select">Pilih Tema:</label>
+                    <label for="theme-select" class="fw-bold mb-2">Pilih Tema:</label>
                     <select id="theme-select" class="form-select">
-                        <option value="light">Light Mode</option>
-                        <option value="dark">Dark Mode</option>
+                        <option value="light">☀️ Light Mode</option>
+                        <option value="dark">🌙 Dark Mode</option>
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn-action btn-kembali" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -229,50 +618,19 @@
 
     <script>
         $(document).ready(function () {
-            // Ambil tema dari localStorage jika ada, jika tidak, default ke 'light'
-            const theme = localStorage.getItem('theme') || 'light';
-            $("#theme-select").val(theme); // Set nilai dropdown sesuai tema yang diambil
-
-            // Terapkan tema berdasarkan nilai dari localStorage
-            if (theme === "dark") {
-                // Jika tema gelap, ubah warna latar belakang dan teks
-                $("body").css("background-color", "#333");
-                $("body").css("color", "#fff");
-                $(".modal-content").css("background-color", "#333");
-                $(".modal-content").css("color", "#fff");
-                $(".footer").removeClass("btn-outline-dark").addClass("btn-outline-light");
-                $(".game-arena").removeClass("bg-warning-subtle").addClass("bg-secondary");
-            } else {
-                // Jika tema terang, ubah warna latar belakang dan teks
-                $("body").css("background-color", "#fff");
-                $("body").css("color", "#000");
-                $(".modal-content").css("background-color", "#fff");
-                $(".modal-content").css("color", "#000");
-                $(".footer").addClass("btn-outline-dark").removeClass("btn-outline-light");
-                $(".game-arena").addClass("bg-warning-subtle").removeClass("bg-secondary");
+            // Terapkan tema berdasarkan localStorage (default: light)
+            function applyTheme(theme) {
+                $("body").toggleClass("dark", theme === "dark");
+                $("#theme-select").val(theme);
             }
+
+            applyTheme(localStorage.getItem('theme') || 'light');
 
             // Menangani perubahan tema saat dropdown berubah
             $("#theme-select").on("change", function () {
-                const selectedTheme = $(this).val(); // Ambil tema yang dipilih
-                localStorage.setItem('theme', selectedTheme); // Simpan pilihan tema ke localStorage
-
-                // Terapkan tema sesuai dengan pilihan
-                if (selectedTheme === "dark") {
-                    $("body").css("background-color", "#333");
-                    $("body").css("color", "#fff");
-                    $(".modal-content").css("background-color", "#333");
-                    $(".modal-content").css("color", "#fff");
-                    $(".footer").removeClass("btn-outline-dark").addClass("btn-outline-light");
-                    $(".game-arena").removeClass("bg-warning-subtle").addClass("bg-secondary");
-                } else {
-                    $("body").css("background-color", "#fff");
-                    $("body").css("color", "#000");
-                    $(".modal-content").css("background-color", "#fff");
-                    $(".modal-content").css("color", "#000");
-                    $(".footer").addClass("btn-outline-dark").removeClass("btn-outline-light");
-                    $(".game-arena").addClass("bg-warning-subtle").removeClass("bg-secondary");
-                }
+                const selectedTheme = $(this).val();
+                localStorage.setItem('theme', selectedTheme);
+                applyTheme(selectedTheme);
             });
 
             // Sembunyikan elemen gameplay pada awalnya
@@ -280,16 +638,18 @@
 
             // Menangani klik tombol kembali
             $(".kembali").on("click", function () {
-                $(".gameplay").hide(); // Sembunyikan gameplay
-                $(".menu-utama").show(); // Tampilkan menu utama
+                $(".gameplay").fadeOut(200, function () {
+                    $(".menu-utama").fadeIn(200); // Tampilkan menu utama
+                });
                 $(".judul").text("Pilih Karakter Vtuber"); // Ubah judul
             });
 
             // Fungsi untuk mengatur permainan dengan karakter dan musik tertentu
             function setupGame(character, musicList, localStorageKey) {
-                $(".menu-utama").hide(); // Sembunyikan menu utama
+                $(".menu-utama").fadeOut(200, function () {
+                    $(".gameplay").fadeIn(200); // Tampilkan elemen gameplay
+                });
                 $(".judul").text("Kurunya telah dipencet sebanyak"); // Ubah judul
-                $(".gameplay").show(); // Tampilkan elemen gameplay
 
                 // Ambil jumlah dari localStorage atau set ke 0 jika belum ada
                 let count = localStorage.getItem(localStorageKey) ? parseInt(localStorage.getItem(localStorageKey)) : 0;
@@ -306,6 +666,12 @@
                     $('#counter').text(count); // Perbarui tampilan hitungan
                     localStorage.setItem(localStorageKey, count); // Simpan hitungan baru ke localStorage
 
+                    // Animasi pop pada angka counter
+                    const counterEl = $('#counter');
+                    counterEl.removeClass('pop');
+                    void counterEl[0].offsetWidth; // paksa reflow agar animasi bisa berulang
+                    counterEl.addClass('pop');
+
                     // Tambahkan gambar karakter ke elemen #character
                     let $img = $('<img class="image" src="aset/img/' + character + '.gif">');
                     $('#character').append($img);
@@ -319,11 +685,11 @@
                     let buttonText;
 
                     if (randomMusic.includes('kuru.mp3')) {
-                        buttonText = 'Kuru Kuru';
+                        buttonText = '🌀 Kuru Kuru';
                     } else if (randomMusic.includes('kururin.mp3')) {
-                        buttonText = 'Kururin';
+                        buttonText = '💫 Kururin';
                     } else if (randomMusic.includes('kira.mp3')) {
-                        buttonText = 'Kira Kira';
+                        buttonText = '✨ Kira Kira';
                     }
 
                     $('#increment-btn').text(buttonText); // Perbarui teks tombol
@@ -331,7 +697,7 @@
                 });
 
                 // Menangani klik tombol reset
-                $(".reset-count").on("click", function () {
+                $(".reset-count").off('click').on("click", function () {
                     // Tampilkan konfirmasi sebelum mereset
                     Swal.fire({
                         title: "Apa Kamu Yakin?",
