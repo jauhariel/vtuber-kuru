@@ -9,6 +9,17 @@
     <meta name="description" content="~Vtuber Kuru Kuru kururin kira kira~">
     <meta name="author" content="jauhariel">
     <meta name="keywords" content="kuru, kururin, herta kuru, herta, vtuber, vtuber kuru, kobo, zeta, kaela">
+    <meta name="theme-color" content="#ff6fb5">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vtuber Kuru">
+    <meta property="og:title" content="Vtuber Kuru 🌀">
+    <meta property="og:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta 💫">
+    <meta property="og:url" content="https://vtuberkuru.jauhariel.is-cool.dev/">
+    <meta property="og:image" content="https://vtuberkuru.jauhariel.is-cool.dev/aset/img/kobo.gif">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vtuber Kuru 🌀">
+    <meta name="twitter:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta 💫">
+    <meta name="twitter:image" content="https://vtuberkuru.jauhariel.is-cool.dev/aset/img/kobo.gif">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -343,6 +354,218 @@
             box-shadow: 0 8px 18px rgba(79, 195, 247, .35);
         }
 
+        /* ---------- kombo & efek gameplay ---------- */
+        .combo-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .6rem;
+            margin-top: .45rem;
+            min-height: 2.1rem;
+        }
+
+        .combo-badge, .multiplier-badge {
+            padding: .28rem .95rem;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: .92rem;
+            background: var(--track-bg);
+            border: 1px solid var(--track-border);
+            color: var(--text-soft);
+            transition: all .25s ease;
+        }
+
+        .combo-badge.hot {
+            background: linear-gradient(135deg, #ff9d3f, #ff5470);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(255, 120, 80, .45);
+        }
+
+        .multiplier-badge { font-weight: 900; }
+
+        .multiplier-badge.m2 { background: linear-gradient(135deg, #4fc3f7, #3f9dff); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(79, 165, 255, .4); }
+        .multiplier-badge.m3 { background: linear-gradient(135deg, #a58bff, #6a5ae0); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(143, 123, 255, .4); }
+        .multiplier-badge.m4 { background: linear-gradient(135deg, #ff8fc7, #ff4d94); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(255, 111, 181, .4); }
+
+        .multiplier-badge.m5 {
+            background: linear-gradient(135deg, #ffd66b, #ff9d3f);
+            border-color: transparent;
+            color: #5a3b00;
+            box-shadow: 0 6px 18px rgba(255, 180, 60, .55);
+            animation: pulse-gold .8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .combo-bar-wrap {
+            width: min(260px, 70vw);
+            height: 8px;
+            margin: .85rem auto 0;
+            border-radius: 999px;
+            background: var(--track-bg);
+            border: 1px solid var(--track-border);
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+
+        .combo-bar-wrap.active { opacity: 1; }
+
+        #combo-bar {
+            height: 100%;
+            width: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+        }
+
+        .key-hint {
+            margin-top: 1rem;
+            color: var(--text-soft);
+            font-weight: 600;
+            font-size: .85rem;
+        }
+
+        kbd {
+            background: var(--modal-muted);
+            border: 1px solid var(--track-border);
+            border-radius: .45rem;
+            padding: .12rem .5rem;
+            font-weight: 800;
+            font-size: .8rem;
+            color: var(--text);
+            box-shadow: 0 2px 0 var(--track-border);
+        }
+
+        .particle {
+            position: fixed;
+            z-index: 999;
+            pointer-events: none;
+            font-size: 1.35rem;
+            animation: particle-fly .9s ease-out forwards;
+        }
+
+        @keyframes particle-fly {
+            0% { opacity: 1; transform: translate(-50%, -50%) translate(0, 0) scale(.8) rotate(0deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1.5) rotate(var(--rot)); }
+        }
+
+        .float-text {
+            position: fixed;
+            z-index: 999;
+            pointer-events: none;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .25));
+            animation: float-up .9s ease-out forwards;
+        }
+
+        @keyframes float-up {
+            0% { opacity: 0; transform: translate(-50%, -50%) translateY(0) scale(.5); }
+            20% { opacity: 1; transform: translate(-50%, -50%) translateY(-12px) scale(1.15); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translateY(-75px) scale(1); }
+        }
+
+        /* ---------- statistik ---------- */
+        .stat-total-box {
+            text-align: center;
+            padding: 1.1rem 1rem;
+            border-radius: 1rem;
+            background: var(--modal-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .stat-total-label {
+            font-weight: 800;
+            font-size: .85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+
+        .stat-total-num {
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-rank {
+            display: inline-block;
+            margin-top: .35rem;
+            padding: .25rem 1rem;
+            border-radius: 999px;
+            font-weight: 900;
+            font-size: .9rem;
+            color: #5a3b00;
+            background: linear-gradient(135deg, #ffd66b, #ff9d3f);
+            box-shadow: 0 6px 14px rgba(255, 180, 60, .35);
+        }
+
+        .stat-row { margin-bottom: .95rem; }
+
+        .stat-row-head {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin-bottom: .35rem;
+        }
+
+        .stat-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: contain;
+            padding: 3px;
+        }
+
+        .ava-kaela { background: linear-gradient(135deg, #fff3d0, #ffdf9e); }
+        .ava-kobo { background: linear-gradient(135deg, #d9f0ff, #aedaff); }
+        .ava-zeta { background: linear-gradient(135deg, #eef1f5, #ccd4dd); }
+
+        .stat-name { font-weight: 800; flex: 1; }
+
+        .stat-count { font-weight: 900; }
+
+        .stat-pct {
+            color: var(--text-soft);
+            font-weight: 700;
+            font-size: .78rem;
+        }
+
+        .stat-bar-wrap {
+            height: 8px;
+            border-radius: 999px;
+            background: var(--track-bg);
+            overflow: hidden;
+        }
+
+        .stat-bar {
+            height: 100%;
+            width: 0;
+            border-radius: 999px;
+            transition: width .6s ease;
+        }
+
+        .bar-kaela { background: linear-gradient(90deg, #ffc94d, #ff9d3f); }
+        .bar-kobo { background: linear-gradient(90deg, #5bb8ff, #3f7bff); }
+        .bar-zeta { background: linear-gradient(90deg, #b6c2cf, #7d8ea3); }
+
+        .btn-share {
+            background: linear-gradient(135deg, #a58bff, #6a5ae0);
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(143, 123, 255, .35);
+        }
+
         /* ---------- footer ---------- */
         .footer-wrap {
             display: flex;
@@ -489,13 +712,20 @@
                 <div class="col-12 text-center">
                     <div id="counter">0</div>
                     <div class="counter-label">Kali</div>
+                    <div class="combo-badges">
+                        <span class="combo-badge" id="combo-badge">🔥 <span id="combo-count">0</span> Kombo</span>
+                        <span class="multiplier-badge" id="multiplier-badge">×1</span>
+                    </div>
                     <div id="character"></div>
                     <button id="increment-btn">🌀 Pencet Kurunya!</button>
+                    <div class="combo-bar-wrap"><div id="combo-bar"></div></div>
+                    <div class="key-hint">💡 Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih cepat!</div>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-12 d-flex justify-content-center gap-3">
                     <button class="btn-action btn-kembali kembali">← Kembali</button>
+                    <button class="btn-action btn-share share-count">📤 Share</button>
                     <button class="btn-action btn-reset reset-count">↺ Reset</button>
                 </div>
             </div>
@@ -514,6 +744,18 @@
                 <circle cx="10" cy="8" r="2" />
             </svg>
             <span>Tampilkan Kredit</span>
+        </button>
+
+        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#statsModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-bar-chart-3">
+                <path d="M3 3v18h18" />
+                <path d="M18 17V9" />
+                <path d="M13 17V5" />
+                <path d="M8 17v-3" />
+            </svg>
+            <span>Statistik</span>
         </button>
 
         <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#optionsModal">
@@ -595,6 +837,64 @@
         </div>
     </div>
 
+    <div class="modal fade" id="statsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="statsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statsModalLabel">📊 Statistik Kuru</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="stat-total-box">
+                        <div class="stat-total-label">Total Kuru Semua Karakter</div>
+                        <div class="stat-total-num" id="stat-total">0</div>
+                        <span class="stat-rank" id="stat-rank">🌱 Kuru Newbie</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-row-head">
+                            <img src="aset/img/kaela.gif" alt="Kaela" class="stat-ava ava-kaela">
+                            <span class="stat-name">Kaela Kovalskia</span>
+                            <span class="stat-count"><span id="stat-count-kaela">0</span> <small class="stat-pct"
+                                    id="stat-pct-kaela">0%</small></span>
+                        </div>
+                        <div class="stat-bar-wrap">
+                            <div class="stat-bar bar-kaela" id="stat-bar-kaela"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-row-head">
+                            <img src="aset/img/kobo.gif" alt="Kobo" class="stat-ava ava-kobo">
+                            <span class="stat-name">Kobo Kanaeru</span>
+                            <span class="stat-count"><span id="stat-count-kobo">0</span> <small class="stat-pct"
+                                    id="stat-pct-kobo">0%</small></span>
+                        </div>
+                        <div class="stat-bar-wrap">
+                            <div class="stat-bar bar-kobo" id="stat-bar-kobo"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-row-head">
+                            <img src="aset/img/zeta.gif" alt="Zeta" class="stat-ava ava-zeta">
+                            <span class="stat-name">Vestia Zeta</span>
+                            <span class="stat-count"><span id="stat-count-zeta">0</span> <small class="stat-pct"
+                                    id="stat-pct-zeta">0%</small></span>
+                        </div>
+                        <div class="stat-bar-wrap">
+                            <div class="stat-bar bar-zeta" id="stat-bar-zeta"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-action btn-share" id="share-total">📤 Share Total</button>
+                    <button type="button" class="btn-action btn-kembali" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="optionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="optionsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -636,6 +936,131 @@
             // Sembunyikan elemen gameplay pada awalnya
             $(".gameplay").hide();
 
+            // Toast kecil untuk notifikasi milestone
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2600,
+                timerProgressBar: true
+            });
+
+            // Daftar milestone kuru
+            const milestones = [
+                { at: 100, msg: '🎉 100 Kuru! Pemanasan dulu~' },
+                { at: 250, msg: '🔥 250 Kuru! Makin panas!' },
+                { at: 500, msg: '💪 500 Kuru! Jari mulai berotot!' },
+                { at: 1000, msg: '🏆 1.000 Kuru! Kuru Master!' },
+                { at: 2500, msg: '🌟 2.500 Kuru! Luar biasa!' },
+                { at: 5000, msg: '👑 5.000 Kuru! Raja Kuru!' },
+                { at: 10000, msg: '💎 10.000 Kuru! Kuru Legend!' },
+                { at: 50000, msg: '🌈 50.000 Kuru! Tak terhentikan!' },
+                { at: 100000, msg: '🚀 100.000 Kuru?! Dedikasi level dewa!' }
+            ];
+
+            // Tampilkan toast jika hitungan melewati milestone
+            function checkMilestone(prev, now) {
+                const hit = milestones.find(m => prev < m.at && now >= m.at);
+                if (hit) Toast.fire({ icon: 'success', title: hit.msg });
+            }
+
+            // Efek partikel emoji meledak dari titik (x, y)
+            function spawnParticles(x, y, amount) {
+                if ($('.particle').length > 60) return; // batasi agar tidak berat
+                const emojis = ['✨', '💫', '🌀', '⭐', '💖', '🎵'];
+                for (let i = 0; i < amount; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = 60 + Math.random() * 90;
+                    const $p = $('<span class="particle">' + emojis[Math.floor(Math.random() * emojis.length)] + '</span>');
+                    $p.css({
+                        left: x + 'px',
+                        top: y + 'px',
+                        '--dx': Math.cos(angle) * dist + 'px',
+                        '--dy': (Math.sin(angle) * dist - 50) + 'px',
+                        '--rot': (Math.random() * 180 - 90) + 'deg'
+                    });
+                    $('body').append($p);
+                    setTimeout(function () { $p.remove(); }, 950);
+                }
+            }
+
+            // Teks "+N" melayang dari titik (x, y)
+            function spawnFloatText(x, y, amount) {
+                if ($('.float-text').length > 20) return;
+                const $t = $('<span class="float-text">+' + amount + '</span>');
+                $t.css({
+                    left: x + 'px',
+                    top: y + 'px',
+                    fontSize: (1.1 + Math.min(amount, 5) * 0.18) + 'rem'
+                });
+                $('body').append($t);
+                setTimeout(function () { $t.remove(); }, 900);
+            }
+
+            // Shortcut keyboard: spasi/enter untuk memencet kuru
+            $(document).on('keydown', function (e) {
+                const isSpace = e.code === 'Space' || e.key === ' ';
+                if (!isSpace && e.key !== 'Enter') return;
+                if (!$('.gameplay').is(':visible')) return; // hanya saat gameplay aktif
+                if ($('.modal.show').length) return; // abaikan saat modal terbuka
+                if ($(e.target).is('button, a, select, input, textarea')) return; // biarkan elemen interaktif bekerja normal
+                e.preventDefault();
+                $('#increment-btn').click();
+            });
+
+            // Ambil hitungan karakter dari localStorage
+            function getCount(key) {
+                return parseInt(localStorage.getItem(key)) || 0;
+            }
+
+            // Gelar rank berdasarkan total kuru
+            function getRank(total) {
+                if (total >= 100000) return '🌈 Dewa Kuru';
+                if (total >= 10000) return '💎 Kuru Legend';
+                if (total >= 5000) return '👑 Raja Kuru';
+                if (total >= 1000) return '🏆 Kuru Master';
+                if (total >= 500) return '🔥 Kuru Addict';
+                if (total >= 100) return '🌀 Kuru Enthusiast';
+                return '🌱 Kuru Newbie';
+            }
+
+            // Perbarui isi modal statistik
+            function renderStats() {
+                const chars = ['kaela', 'kobo', 'zeta'];
+                const counts = chars.map(c => getCount(c + 'count'));
+                const total = counts.reduce((a, b) => a + b, 0);
+                $('#stat-total').text(total.toLocaleString('id-ID'));
+                $('#stat-rank').text(getRank(total));
+                chars.forEach(function (c, i) {
+                    const pct = total ? Math.round(counts[i] / total * 100) : 0;
+                    $('#stat-count-' + c).text(counts[i].toLocaleString('id-ID'));
+                    $('#stat-pct-' + c).text(pct + '%');
+                    $('#stat-bar-' + c).css('width', pct + '%');
+                });
+            }
+
+            // Muat ulang statistik tiap modal dibuka
+            $('#statsModal').on('show.bs.modal', renderStats);
+
+            // Bagikan teks kuru (share sheet di HP, intent X di desktop)
+            function shareKuru(text) {
+                const url = 'https://vtuberkuru.jauhariel.is-cool.dev/';
+                if (navigator.share) {
+                    navigator.share({ title: 'Vtuber Kuru', text: text, url: url }).catch(function () { });
+                } else {
+                    const intent = 'https://x.com/intent/post?text=' + encodeURIComponent(text)
+                        + '&url=' + encodeURIComponent(url)
+                        + '&hashtags=VtuberKuru,KuruKuru';
+                    window.open(intent, '_blank', 'width=550,height=420');
+                }
+            }
+
+            // Bagikan total kuru dari modal statistik
+            $('#share-total').on('click', function () {
+                const total = getCount('kaelacount') + getCount('kobocount') + getCount('zetacount');
+                shareKuru('Total kuruku sudah ' + total.toLocaleString('id-ID') + ' kali! Rank-ku: ' + getRank(total) + ' 🌀✨');
+            });
+
             // Menangani klik tombol kembali
             $(".kembali").on("click", function () {
                 $(".gameplay").fadeOut(200, function () {
@@ -653,7 +1078,53 @@
 
                 // Ambil jumlah dari localStorage atau set ke 0 jika belum ada
                 let count = localStorage.getItem(localStorageKey) ? parseInt(localStorage.getItem(localStorageKey)) : 0;
-                $('#counter').text(count); // Tampilkan jumlah saat ini
+                $('#counter').text(count.toLocaleString('id-ID')); // Tampilkan jumlah saat ini
+
+                // Status kombo
+                const COMBO_WINDOW = 1500; // jeda maksimal antar pencet (ms)
+                let combo = 0;
+                let comboTimer = null;
+
+                // Hitung multiplier berdasarkan kombo
+                function getMultiplier(c) {
+                    if (c >= 50) return 5;
+                    if (c >= 30) return 4;
+                    if (c >= 20) return 3;
+                    if (c >= 10) return 2;
+                    return 1;
+                }
+
+                // Reset kombo ke awal
+                function resetCombo() {
+                    combo = 0;
+                    clearTimeout(comboTimer);
+                    $('#combo-count').text(0);
+                    $('#combo-badge').removeClass('hot');
+                    $('#multiplier-badge').text('×1').removeClass('m2 m3 m4 m5');
+                    $('.combo-bar-wrap').removeClass('active');
+                    $('#combo-bar').stop(true).css('width', '100%');
+                }
+
+                // Perbarui tampilan kombo & multiplier
+                function updateComboUI(multiplier) {
+                    $('#combo-count').text(combo);
+                    $('#combo-badge').toggleClass('hot', combo >= 10);
+                    const $mb = $('#multiplier-badge').text('×' + multiplier).removeClass('m2 m3 m4 m5');
+                    if (multiplier > 1) $mb.addClass('m' + multiplier);
+                    // Bar waktu kombo: penuh lalu habis selama COMBO_WINDOW
+                    $('.combo-bar-wrap').addClass('active');
+                    $('#combo-bar').stop(true).css('width', '100%')
+                        .animate({ width: '0%' }, COMBO_WINDOW, 'linear');
+                }
+
+                // Reset kombo saat keluar dari gameplay
+                $('.kembali').off('click.combo').on('click.combo', resetCombo);
+
+                // Bagikan progres karakter ini
+                $('.share-count').off('click').on('click', function () {
+                    const names = { kaela: 'Kaela Kovalskia', kobo: 'Kobo Kanaeru', zeta: 'Vestia Zeta' };
+                    shareKuru('Aku sudah memencet kuru ' + names[character] + ' sebanyak ' + count.toLocaleString('id-ID') + ' kali! 🌀✨');
+                });
 
                 // Fungsi untuk mendapatkan musik secara acak dari daftar
                 function getRandomMusic() {
@@ -661,16 +1132,35 @@
                 }
 
                 // Menangani klik tombol increment
-                $('#increment-btn').off('click').on('click', function () {
-                    count++; // Tambah hitungan
-                    $('#counter').text(count); // Perbarui tampilan hitungan
+                $('#increment-btn').off('click').on('click', function (e) {
+                    // Kombo naik tiap pencet cepat, lalu tentukan multiplier
+                    combo++;
+                    clearTimeout(comboTimer);
+                    comboTimer = setTimeout(resetCombo, COMBO_WINDOW);
+                    const multiplier = getMultiplier(combo);
+
+                    const prevCount = count;
+                    count += multiplier; // Tambah hitungan sesuai multiplier
+                    $('#counter').text(count.toLocaleString('id-ID')); // Perbarui tampilan hitungan
                     localStorage.setItem(localStorageKey, count); // Simpan hitungan baru ke localStorage
+
+                    checkMilestone(prevCount, count); // Cek milestone
+                    updateComboUI(multiplier); // Perbarui tampilan kombo
 
                     // Animasi pop pada angka counter
                     const counterEl = $('#counter');
                     counterEl.removeClass('pop');
                     void counterEl[0].offsetWidth; // paksa reflow agar animasi bisa berulang
                     counterEl.addClass('pop');
+
+                    // Posisi efek: kursor mouse, atau tengah tombol jika via keyboard
+                    const rect = this.getBoundingClientRect();
+                    const hasMouse = typeof e.clientX === 'number' && (e.clientX !== 0 || e.clientY !== 0);
+                    const fx = hasMouse ? e.clientX : rect.left + rect.width / 2;
+                    const fy = hasMouse ? e.clientY : rect.top;
+
+                    spawnParticles(fx, fy, Math.min(4 + multiplier * 2, 12)); // Ledakan partikel
+                    spawnFloatText(fx, fy - 10, multiplier); // Teks "+N"
 
                     // Tambahkan gambar karakter ke elemen #character
                     let $img = $('<img class="image" src="aset/img/' + character + '.gif">');
@@ -694,6 +1184,8 @@
 
                     $('#increment-btn').text(buttonText); // Perbarui teks tombol
                     new Audio(randomMusic).play(); // Mainkan musik acak
+
+                    this.blur(); // Lepaskan fokus agar spasi/enter tidak terpicu dua kali
                 });
 
                 // Menangani klik tombol reset
@@ -712,6 +1204,7 @@
                         if (result.isConfirmed) {
                             localStorage.setItem(localStorageKey, 0); // Reset hitungan di localStorage
                             count = 0; // Set hitungan ke 0
+                            resetCombo(); // Kombo juga direset
                             $('#counter').text(0); // Perbarui tampilan hitungan
                             Swal.fire({
                                 title: "Tereset!",
