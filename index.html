@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vtuber kuru</title>
+    <title>VTUBER KURU — Kuru Kuru Kururin Kira Kira</title>
     <link rel="icon" href="aset/img/kobo.gif" type="image/x-icon">
-    <meta name="description" content="~Vtuber Kuru Kuru kururin kira kira~">
+    <meta name="description" content="Kuru kuru kururin kira kira — fan clicker Hololive ID Gen 3: Kaela, Kobo, dan Zeta.">
     <meta name="author" content="jauhariel">
-    <meta name="keywords" content="kuru, kururin, herta kuru, herta, vtuber, vtuber kuru, kobo, zeta, kaela">
-    <meta name="theme-color" content="#ff6fb5">
+    <meta name="keywords" content="kuru, kururin, kira kira, herta kuru, vtuber, vtuber kuru, kobo, zeta, kaela, hololive id">
+    <meta name="theme-color" content="#f7f0e1">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vtuber Kuru">
-    <meta property="og:title" content="Vtuber Kuru 🌀">
-    <meta property="og:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta 💫">
+    <meta property="og:title" content="VTUBER KURU">
+    <meta property="og:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta">
     <meta property="og:url" content="https://vtuberkuru.jauhariel.is-cool.dev/">
     <meta property="og:image" content="https://vtuberkuru.jauhariel.is-cool.dev/aset/img/kobo.gif">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Vtuber Kuru 🌀">
-    <meta name="twitter:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta 💫">
+    <meta name="twitter:title" content="VTUBER KURU">
+    <meta name="twitter:description" content="Pencet kurunya sebanyak-banyaknya! Kuru Kuru Kururin Kira Kira~ bersama Kaela, Kobo, dan Zeta">
     <meta name="twitter:image" content="https://vtuberkuru.jauhariel.is-cool.dev/aset/img/kobo.gif">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -31,277 +31,471 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Karla:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
         rel="stylesheet">
 
     <style>
+        /* =========================================================
+           VTUBER KURU — tema "fan-zine"
+           kertas + tinta + stiker: flat, tebal, tanpa gradien
+           ========================================================= */
         :root {
-            --accent-pink: #ff6fb5;
-            --accent-purple: #8f7bff;
-            --accent-blue: #4fc3f7;
-            --text: #3d3654;
-            --text-soft: #857ea8;
-            --bg-1: #fdf1f7;
-            --bg-2: #eef3ff;
-            --bg-3: #e9fbf3;
-            --card-bg: rgba(255, 255, 255, .75);
-            --card-border: rgba(255, 255, 255, .9);
-            --arena-bg: rgba(255, 255, 255, .6);
-            --track-bg: rgba(143, 123, 255, .07);
-            --track-border: rgba(143, 123, 255, .35);
-            --footer-btn-bg: rgba(255, 255, 255, .7);
-            --modal-bg: #ffffff;
-            --modal-muted: #f6f4fc;
-            --shadow-soft: 0 20px 45px rgba(143, 123, 255, .18);
-            --blob-opacity: .55;
+            --paper: #f7f0e1;
+            --surface: #fffdf6;
+            --ink: #282331;
+            --ink-soft: #6e6680;
+            --sun: #ffc942;
+            --rain: #41a6f2;
+            --mist: #b3bfdf;
+            --pop: #ff5d8f;
+            --alert: #f2544f;
+            --dot: rgba(40, 35, 49, .16);
+            --shadow-c: #282331;
+            --kaela: #ffc942;
+            --kobo: #41a6f2;
+            --zeta: #b3bfdf;
+            --font-display: 'Archivo Black', 'Zen Kaku Gothic New', sans-serif;
+            --font-body: 'Karla', 'Zen Kaku Gothic New', sans-serif;
+            --font-mono: 'Space Mono', 'Zen Kaku Gothic New', monospace;
         }
 
         body.dark {
-            --text: #ece9fb;
-            --text-soft: #a9a3cf;
-            --bg-1: #17122e;
-            --bg-2: #1d1840;
-            --bg-3: #121c31;
-            --card-bg: rgba(40, 34, 76, .75);
-            --card-border: rgba(255, 255, 255, .08);
-            --arena-bg: rgba(31, 26, 61, .6);
-            --track-bg: rgba(255, 255, 255, .05);
-            --track-border: rgba(255, 255, 255, .18);
-            --footer-btn-bg: rgba(255, 255, 255, .07);
-            --modal-bg: #262052;
-            --modal-muted: #2e2760;
-            --shadow-soft: 0 20px 45px rgba(0, 0, 0, .45);
-            --blob-opacity: .3;
-        }
-
-        * {
-            font-family: 'Nunito', system-ui, sans-serif;
+            --paper: #201b2e;
+            --surface: #2b2540;
+            --ink: #f3eadb;
+            --ink-soft: #a79fc4;
+            --sun: #ffce4f;
+            --rain: #5fbaff;
+            --mist: #b9c5ec;
+            --pop: #ff7fa6;
+            --alert: #ff6f69;
+            --dot: rgba(243, 234, 219, .10);
+            --shadow-c: #14111f;
+            --kaela: #ffce4f;
+            --kobo: #5fbaff;
+            --zeta: #b9c5ec;
         }
 
         body {
             min-height: 100vh;
             overflow-x: hidden;
-            color: var(--text);
-            background: linear-gradient(135deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
-            background-attachment: fixed;
-            transition: background .5s ease, color .5s ease;
+            color: var(--ink);
+            background-color: var(--paper);
+            background-image: radial-gradient(var(--dot) 1.3px, transparent 1.3px);
+            background-size: 26px 26px;
+            font-family: var(--font-body);
+            transition: background-color .35s ease, color .35s ease;
         }
 
-        /* ---------- dekorasi background ---------- */
-        .blob {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: var(--blob-opacity);
-            z-index: -1;
-            pointer-events: none;
-            transition: opacity .5s ease;
-        }
+        body, button, input, select, textarea { font-family: var(--font-body); }
 
-        .blob.b1 { width: 380px; height: 380px; background: #ffc2e0; top: -100px; left: -100px; }
-        .blob.b2 { width: 320px; height: 320px; background: #c3b6ff; top: 35%; right: -120px; }
-        .blob.b3 { width: 300px; height: 300px; background: #b5ecff; bottom: -100px; left: 25%; }
+        ::selection { background: var(--sun); color: #282331; }
+        body.dark ::selection { color: #201b2e; }
+
+        :focus-visible { outline: 3px solid var(--rain); outline-offset: 2px; border-radius: 4px; }
 
         /* ---------- header ---------- */
-        .header-gif {
-            width: 90px;
-            filter: drop-shadow(0 8px 14px rgba(61, 54, 84, .25));
-            animation: floaty 3s ease-in-out infinite;
+        .site-header { padding-top: 2.25rem; }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(.75rem, 3vw, 2rem);
+            flex-wrap: wrap;
         }
 
-        .header-gif.delay { animation-delay: 1.5s; }
+        .brand { text-align: center; }
 
-        @keyframes floaty {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--font-mono);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
         }
+
+        .eyebrow::before, .eyebrow::after { content: "★"; color: var(--pop); }
 
         .judul-utama {
-            font-weight: 900;
-            font-size: clamp(1.5rem, 4.5vw, 2.6rem);
-            margin: 0;
-            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: none;
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(2rem, 6.5vw, 3.6rem);
+            line-height: 1.05;
+            letter-spacing: .01em;
+            margin: .3rem 0 .6rem;
+            color: var(--ink);
+            text-shadow: 4px 4px 0 var(--sun);
         }
 
+        body.dark .judul-utama { text-shadow: 4px 4px 0 rgba(0, 0, 0, .55); }
+
         .subtitle {
-            color: var(--text-soft);
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            font-family: var(--font-mono);
             font-weight: 700;
-            letter-spacing: .5px;
-            margin-top: .35rem;
+            font-size: .82rem;
+            padding: .32rem 1rem;
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            background: var(--surface);
+            box-shadow: 3px 3px 0 var(--shadow-c);
+            transform: rotate(-1deg);
+            margin: 0;
         }
+
+        .subtitle svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--pop); }
+
+        /* ---------- pita berjalan ---------- */
+        .tape {
+            margin-top: 1.75rem;
+            border-block: 2px solid var(--ink);
+            background: var(--sun);
+            overflow: hidden;
+        }
+
+        .tape-track {
+            display: flex;
+            width: max-content;
+            animation: tape-scroll 28s linear infinite;
+        }
+
+        .tape-group {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            padding: .5rem 0 .5rem 1.75rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: #282331;
+        }
+
+        .tape-group .sep { color: rgba(40, 35, 49, .5); }
+
+        @keyframes tape-scroll { to { transform: translateX(-50%); } }
 
         /* ---------- arena ---------- */
         .game-arena {
-            max-width: 1100px;
-            background: var(--arena-bg);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid var(--card-border);
-            border-radius: 2rem;
-            box-shadow: var(--shadow-soft);
-            padding: 2rem 1.5rem;
-            transition: background .5s ease, border .5s ease;
+            max-width: 1080px;
+            width: 100%;
+            margin-top: 2.25rem;
+            background: var(--surface);
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            box-shadow: 8px 8px 0 var(--shadow-c);
+            padding: 2rem clamp(1rem, 3vw, 2.25rem) 2.25rem;
+            transition: background .35s ease;
         }
+
+        .judul-wrap { margin-bottom: 1.75rem; text-align: center; }
 
         .judul {
             display: inline-block;
-            font-weight: 900;
-            font-size: clamp(1.15rem, 3vw, 1.6rem);
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .judul-wrap {
-            position: relative;
-            margin-bottom: 1rem;
-        }
-
-        .judul-wrap::after {
-            content: "";
-            display: block;
-            width: 90px;
-            height: 4px;
-            margin: .5rem auto 0;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(.95rem, 2.6vw, 1.3rem);
+            letter-spacing: .02em;
+            padding: .5rem 1.2rem;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            background: var(--mist);
+            color: #282331;
+            box-shadow: 4px 4px 0 var(--shadow-c);
+            transform: rotate(-1.2deg);
         }
 
         /* ---------- kartu karakter ---------- */
-        .char-card {
-            width: 18rem;
-            border: 1px solid var(--card-border);
-            border-radius: 1.5rem;
-            overflow: hidden;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 10px 25px rgba(61, 54, 84, .10);
-            transition: transform .3s ease, box-shadow .3s ease, background .5s ease;
+        .char-row {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 1.75rem;
         }
 
-        .char-card:hover { transform: translateY(-10px) scale(1.02); }
+        .char-card {
+            width: 19rem;
+            background: var(--surface);
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            box-shadow: 6px 6px 0 var(--shadow-c);
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
 
-        .card-kaela:hover { box-shadow: 0 22px 45px rgba(245, 183, 66, .40); }
-        .card-kobo:hover { box-shadow: 0 22px 45px rgba(79, 164, 247, .40); }
-        .card-zeta:hover { box-shadow: 0 22px 45px rgba(148, 163, 184, .45); }
+        .card-kaela { transform: rotate(-1.4deg); }
+        .card-kobo { transform: rotate(1deg); }
+        .card-zeta { transform: rotate(-.7deg); }
+
+        .card-kaela:hover { transform: rotate(0) translateY(-6px); box-shadow: 8px 10px 0 var(--kaela); }
+        .card-kobo:hover { transform: rotate(0) translateY(-6px); box-shadow: 8px 10px 0 var(--kobo); }
+        .card-zeta:hover { transform: rotate(0) translateY(-6px); box-shadow: 8px 10px 0 var(--zeta); }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            padding: .6rem .9rem;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .card-kaela .card-head { background: var(--kaela); color: #282331; }
+        .card-kobo .card-head { background: var(--kobo); color: #fffdf6; }
+        .card-zeta .card-head { background: var(--zeta); color: #282331; }
+        body.dark .card-head { color: #201b2e; }
+
+        .card-name {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: .98rem;
+            letter-spacing: .02em;
+        }
+
+        .card-gen {
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            padding: .12rem .5rem;
+            border: 2px solid currentColor;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
 
         .card-img-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 190px;
-            padding: 1rem;
+            height: 200px;
+            background-image: radial-gradient(var(--dot) 1.3px, transparent 1.3px);
+            background-size: 18px 18px;
+            border-bottom: 2px solid var(--ink);
         }
-
-        .card-kaela .card-img-wrap { background: linear-gradient(135deg, #fff3d0, #ffdf9e); }
-        .card-kobo .card-img-wrap { background: linear-gradient(135deg, #d9f0ff, #aedaff); }
-        .card-zeta .card-img-wrap { background: linear-gradient(135deg, #eef1f5, #ccd4dd); }
-
-        body.dark .card-kaela .card-img-wrap { background: linear-gradient(135deg, #4a3a14, #6b5320); }
-        body.dark .card-kobo .card-img-wrap { background: linear-gradient(135deg, #173a5c, #1f5790); }
-        body.dark .card-zeta .card-img-wrap { background: linear-gradient(135deg, #3a4150, #5a6577); }
 
         .card-img-wrap img {
-            max-height: 100%;
-            max-width: 100%;
+            max-height: 172px;
+            max-width: 82%;
             object-fit: contain;
-            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .15));
-            transition: transform .3s ease;
+            filter: drop-shadow(3px 3px 0 rgba(40, 35, 49, .18));
+            transition: transform .25s ease;
         }
 
-        .char-card:hover .card-img-wrap img { transform: scale(1.08) rotate(-2deg); }
+        body.dark .card-img-wrap img { filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .5)); }
 
-        .char-card .card-body {
-            background: transparent;
-            text-align: center;
-            padding: 1.25rem;
-        }
+        .char-card:hover .card-img-wrap img { transform: scale(1.07) rotate(2deg); }
 
-        .card-title {
-            font-weight: 900;
-            color: var(--text);
-        }
+        .card-body { text-align: center; padding: 1rem 1.1rem 1.25rem; }
 
         .card-text {
-            color: var(--text-soft);
-            font-weight: 600;
-            font-size: .92rem;
+            color: var(--ink-soft);
+            font-weight: 700;
+            font-size: .88rem;
+            margin-bottom: .45rem;
         }
+
+        .char-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-family: var(--font-mono);
+            font-size: .64rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            color: var(--ink-soft);
+            margin-bottom: .95rem;
+        }
+
+        .char-tag svg { width: 13px; height: 13px; flex-shrink: 0; }
 
         .btn-play {
-            display: inline-block;
-            border: none;
-            border-radius: 999px;
-            padding: .6rem 1.6rem;
-            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: .6rem 1.5rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+            box-shadow: 4px 4px 0 var(--shadow-c);
+            transition: transform .15s ease, box-shadow .15s ease;
         }
 
-        .btn-play:hover { transform: translateY(-3px); filter: brightness(1.05); }
-        .btn-play:active { transform: scale(.95); }
+        .btn-play svg { width: 15px; height: 15px; flex-shrink: 0; }
 
-        .card-kaela .btn-play {
-            background: linear-gradient(135deg, #ffc94d, #ff9d3f);
-            color: #5a3b00;
-            box-shadow: 0 8px 18px rgba(255, 170, 50, .45);
+        .btn-play:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow-c); }
+        .btn-play:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--shadow-c); }
+
+        .card-kaela .btn-play { background: var(--kaela); color: #282331; }
+        .card-kobo .btn-play { background: var(--kobo); color: #fffdf6; }
+        .card-zeta .btn-play { background: var(--zeta); color: #282331; }
+        body.dark .btn-play { color: #201b2e; }
+
+        /* ---------- gameplay: tiket hitungan ---------- */
+        .counter-ticket {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            max-width: 560px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            box-shadow: 6px 6px 0 var(--shadow-c);
+            overflow: hidden;
         }
 
-        .card-kobo .btn-play {
-            background: linear-gradient(135deg, #5bb8ff, #3f7bff);
-            color: #fff;
-            box-shadow: 0 8px 18px rgba(80, 140, 255, .45);
-        }
-
-        .card-zeta .btn-play {
-            background: linear-gradient(135deg, #b6c2cf, #7d8ea3);
-            color: #fff;
-            box-shadow: 0 8px 18px rgba(125, 142, 163, .45);
-        }
-
-        /* ---------- gameplay ---------- */
-        #counter {
-            font-size: clamp(3rem, 9vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        #counter.pop { animation: pop .25s ease; }
-
-        @keyframes pop {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+        .ticket-main {
+            flex: 1 1 auto;
+            padding: 1rem 1.25rem 1.1rem;
+            text-align: center;
+            min-width: 0;
         }
 
         .counter-label {
-            color: var(--text-soft);
-            font-weight: 800;
-            letter-spacing: 2px;
+            display: block;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .66rem;
+            letter-spacing: .22em;
             text-transform: uppercase;
-            font-size: .85rem;
+            color: var(--ink-soft);
         }
 
+        #counter {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 8vw, 4rem);
+            line-height: 1.1;
+            color: var(--ink);
+            user-select: none;
+        }
+
+        #counter.pop { animation: pop .22s ease; }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.14) rotate(-1.5deg); }
+            100% { transform: scale(1); }
+        }
+
+        .ticket-stub {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            padding: .9rem 1.15rem;
+            border-left: 2px dashed var(--ink);
+            background: var(--paper);
+        }
+
+        .barcode {
+            width: 84px;
+            height: 30px;
+            background: repeating-linear-gradient(90deg,
+                var(--ink) 0 2px, transparent 2px 5px,
+                var(--ink) 5px 6px, transparent 6px 8px,
+                var(--ink) 8px 11px, transparent 11px 14px);
+        }
+
+        .stub-label {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .58rem;
+            letter-spacing: .18em;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+
+        /* ---------- kombo ---------- */
+        .combo-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .6rem;
+            margin-top: .9rem;
+            min-height: 2.3rem;
+        }
+
+        .combo-badge, .multiplier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .3rem .9rem;
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .78rem;
+            background: var(--surface);
+            color: var(--ink);
+            box-shadow: 3px 3px 0 var(--shadow-c);
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .combo-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+        .combo-badge.hot { background: var(--pop); color: #fffdf6; }
+        body.dark .combo-badge.hot { color: #201b2e; }
+
+        .multiplier-badge.m2 { background: var(--rain); color: #fffdf6; }
+        .multiplier-badge.m3 { background: var(--mist); color: #282331; }
+        .multiplier-badge.m4 { background: var(--pop); color: #fffdf6; }
+        .multiplier-badge.m5 { background: var(--sun); color: #282331; animation: wiggle .5s ease-in-out infinite; }
+        body.dark .multiplier-badge.m2,
+        body.dark .multiplier-badge.m3,
+        body.dark .multiplier-badge.m4,
+        body.dark .multiplier-badge.m5 { color: #201b2e; }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        /* ---------- lintasan kuru ---------- */
         #character {
             position: relative;
             height: 200px;
             max-width: 720px;
-            margin: 1.25rem auto;
+            margin: 1.4rem auto 1.5rem;
             overflow: hidden;
-            border-radius: 1.25rem;
-            background: var(--track-bg);
-            border: 2px dashed var(--track-border);
-            transition: background .5s ease, border .5s ease;
+            border: 2px dashed var(--ink);
+            border-radius: 14px;
+            background-color: var(--paper);
+            background-image: radial-gradient(var(--dot) 1.3px, transparent 1.3px);
+            background-size: 20px 20px;
+        }
+
+        #character::before {
+            content: "KURU KURU";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            letter-spacing: .08em;
+            color: var(--ink);
+            opacity: .08;
+            pointer-events: none;
         }
 
         .image {
@@ -310,104 +504,47 @@
             transform: translateY(-50%);
             right: -220px;
             width: 200px;
+            filter: drop-shadow(3px 3px 0 rgba(40, 35, 49, .2));
         }
 
+        body.dark .image { filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .5)); }
+
+        /* ---------- tombol utama ---------- */
         #increment-btn {
-            border: none;
-            border-radius: 999px;
-            padding: .9rem 2.6rem;
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: #fff;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            box-shadow: 0 12px 28px rgba(255, 111, 181, .45);
-            transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-        }
-
-        #increment-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            filter: brightness(1.06);
-            box-shadow: 0 16px 32px rgba(143, 123, 255, .5);
-        }
-
-        #increment-btn:active { transform: scale(.93); }
-
-        .btn-action {
-            border: none;
-            border-radius: 999px;
-            padding: .55rem 1.5rem;
-            font-weight: 800;
-            color: #fff;
-            transition: transform .2s ease, filter .2s ease;
-        }
-
-        .btn-action:hover { transform: translateY(-2px); filter: brightness(1.08); }
-        .btn-action:active { transform: scale(.95); }
-
-        .btn-kembali {
-            background: linear-gradient(135deg, #4fc3f7, #3f9dff);
-            box-shadow: 0 8px 18px rgba(79, 195, 247, .35);
-        }
-
-        .btn-reset {
-            background: linear-gradient(135deg, #ff7b8f, #ff5470);
-            box-shadow: 0 8px 18px rgba(255, 84, 112, .35);
-        }
-
-        /* ---------- kombo & efek gameplay ---------- */
-        .combo-badges {
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: .6rem;
-            margin-top: .45rem;
-            min-height: 2.1rem;
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            padding: .95rem 2.4rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.02rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--sun);
+            background: var(--ink);
+            box-shadow: 6px 6px 0 var(--shadow-c);
+            transition: transform .12s ease, box-shadow .12s ease;
+            user-select: none;
         }
 
-        .combo-badge, .multiplier-badge {
-            padding: .28rem .95rem;
-            border-radius: 999px;
-            font-weight: 800;
-            font-size: .92rem;
-            background: var(--track-bg);
-            border: 1px solid var(--track-border);
-            color: var(--text-soft);
-            transition: all .25s ease;
-        }
+        body.dark #increment-btn { color: #201b2e; }
 
-        .combo-badge.hot {
-            background: linear-gradient(135deg, #ff9d3f, #ff5470);
-            border-color: transparent;
-            color: #fff;
-            box-shadow: 0 6px 16px rgba(255, 120, 80, .45);
-        }
+        #increment-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-        .multiplier-badge { font-weight: 900; }
-
-        .multiplier-badge.m2 { background: linear-gradient(135deg, #4fc3f7, #3f9dff); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(79, 165, 255, .4); }
-        .multiplier-badge.m3 { background: linear-gradient(135deg, #a58bff, #6a5ae0); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(143, 123, 255, .4); }
-        .multiplier-badge.m4 { background: linear-gradient(135deg, #ff8fc7, #ff4d94); border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(255, 111, 181, .4); }
-
-        .multiplier-badge.m5 {
-            background: linear-gradient(135deg, #ffd66b, #ff9d3f);
-            border-color: transparent;
-            color: #5a3b00;
-            box-shadow: 0 6px 18px rgba(255, 180, 60, .55);
-            animation: pulse-gold .8s ease-in-out infinite;
-        }
-
-        @keyframes pulse-gold {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.18); }
-        }
+        #increment-btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--shadow-c); }
+        #increment-btn:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--shadow-c); }
 
         .combo-bar-wrap {
-            width: min(260px, 70vw);
-            height: 8px;
-            margin: .85rem auto 0;
+            position: relative;
+            width: min(280px, 70vw);
+            height: 14px;
+            margin: 1.05rem auto 0;
+            border: 2px solid var(--ink);
             border-radius: 999px;
-            background: var(--track-bg);
-            border: 1px solid var(--track-border);
+            background: var(--surface);
             overflow: hidden;
             opacity: 0;
             transition: opacity .3s ease;
@@ -418,53 +555,101 @@
         #combo-bar {
             height: 100%;
             width: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+            background: var(--pop);
+        }
+
+        .combo-bar-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(90deg, transparent 0 16px, var(--surface) 16px 20px);
         }
 
         .key-hint {
-            margin-top: 1rem;
-            color: var(--text-soft);
-            font-weight: 600;
-            font-size: .85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .45rem;
+            flex-wrap: wrap;
+            margin-top: 1.15rem;
+            color: var(--ink-soft);
+            font-weight: 700;
+            font-size: .82rem;
         }
+
+        .key-hint svg { width: 14px; height: 14px; flex-shrink: 0; }
 
         kbd {
-            background: var(--modal-muted);
-            border: 1px solid var(--track-border);
-            border-radius: .45rem;
-            padding: .12rem .5rem;
-            font-weight: 800;
-            font-size: .8rem;
-            color: var(--text);
-            box-shadow: 0 2px 0 var(--track-border);
+            font-family: var(--font-mono);
+            background: var(--surface);
+            border: 2px solid var(--ink);
+            border-bottom-width: 3px;
+            border-radius: 6px;
+            padding: .05rem .45rem;
+            font-weight: 700;
+            font-size: .72rem;
+            color: var(--ink);
         }
 
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: .55rem 1.3rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0 var(--shadow-c);
+            transition: transform .15s ease, box-shadow .15s ease;
+            user-select: none;
+        }
+
+        .btn-action svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+        .btn-action:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow-c); }
+        .btn-action:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--shadow-c); }
+
+        .btn-kembali { background: var(--surface); color: var(--ink); }
+        .btn-share { background: var(--pop); color: #fffdf6; }
+        .btn-reset { background: var(--alert); color: #fffdf6; }
+        body.dark .btn-share, body.dark .btn-reset { color: #201b2e; }
+
+        /* ---------- partikel & teks melayang ---------- */
         .particle {
             position: fixed;
             z-index: 999;
             pointer-events: none;
-            font-size: 1.35rem;
             animation: particle-fly .9s ease-out forwards;
         }
 
+        .particle svg { width: 19px; height: 19px; display: block; }
+        .particle.c1 { color: var(--pop); }
+        .particle.c2 { color: var(--rain); }
+        .particle.c3 { color: var(--sun); }
+        .particle.c4 { color: var(--mist); }
+
         @keyframes particle-fly {
-            0% { opacity: 1; transform: translate(-50%, -50%) translate(0, 0) scale(.8) rotate(0deg); }
-            100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1.5) rotate(var(--rot)); }
+            0% { opacity: 1; transform: translate(-50%, -50%) translate(0, 0) scale(.7) rotate(0deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1.4) rotate(var(--rot)); }
         }
 
         .float-text {
             position: fixed;
             z-index: 999;
             pointer-events: none;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .25));
+            font-family: var(--font-display);
+            color: var(--pop);
+            text-shadow: 2px 2px 0 var(--shadow-c);
             animation: float-up .9s ease-out forwards;
         }
+
+        body.dark .float-text { color: var(--sun); }
 
         @keyframes float-up {
             0% { opacity: 0; transform: translate(-50%, -50%) translateY(0) scale(.5); }
@@ -475,472 +660,619 @@
         /* ---------- statistik ---------- */
         .stat-total-box {
             text-align: center;
-            padding: 1.1rem 1rem;
-            border-radius: 1rem;
-            background: var(--modal-muted);
-            margin-bottom: 1.25rem;
+            padding: 1.15rem 1rem 1.25rem;
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            background: var(--paper);
+            margin-bottom: 1.4rem;
         }
 
         .stat-total-label {
-            font-weight: 800;
-            font-size: .85rem;
-            letter-spacing: 1px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .64rem;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            color: var(--text-soft);
+            color: var(--ink-soft);
         }
 
         .stat-total-num {
-            font-size: 2.4rem;
-            font-weight: 900;
-            line-height: 1.15;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: var(--font-display);
+            font-size: 2.3rem;
+            line-height: 1.2;
+            color: var(--ink);
         }
 
         .stat-rank {
-            display: inline-block;
-            margin-top: .35rem;
-            padding: .25rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            margin-top: .4rem;
+            padding: .28rem 1rem;
+            border: 2px solid var(--ink);
             border-radius: 999px;
-            font-weight: 900;
-            font-size: .9rem;
-            color: #5a3b00;
-            background: linear-gradient(135deg, #ffd66b, #ff9d3f);
-            box-shadow: 0 6px 14px rgba(255, 180, 60, .35);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .78rem;
+            color: #282331;
+            background: var(--sun);
+            box-shadow: 3px 3px 0 var(--shadow-c);
+            transform: rotate(-1.5deg);
         }
 
-        .stat-row { margin-bottom: .95rem; }
+        .stat-rank svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+        .stat-row { margin-bottom: 1.05rem; }
 
         .stat-row-head {
             display: flex;
             align-items: center;
-            gap: .55rem;
-            margin-bottom: .35rem;
+            gap: .6rem;
+            margin-bottom: .4rem;
         }
 
         .stat-ava {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             object-fit: contain;
             padding: 3px;
+            background: var(--surface);
+            border: 2px solid var(--ink);
         }
 
-        .ava-kaela { background: linear-gradient(135deg, #fff3d0, #ffdf9e); }
-        .ava-kobo { background: linear-gradient(135deg, #d9f0ff, #aedaff); }
-        .ava-zeta { background: linear-gradient(135deg, #eef1f5, #ccd4dd); }
+        .stat-name { font-weight: 700; flex: 1; }
 
-        .stat-name { font-weight: 800; flex: 1; }
+        .stat-count { font-family: var(--font-mono); font-weight: 700; }
 
-        .stat-count { font-weight: 900; }
-
-        .stat-pct {
-            color: var(--text-soft);
-            font-weight: 700;
-            font-size: .78rem;
-        }
+        .stat-pct { color: var(--ink-soft); font-weight: 700; font-size: .74rem; }
 
         .stat-bar-wrap {
-            height: 8px;
+            height: 12px;
+            border: 2px solid var(--ink);
             border-radius: 999px;
-            background: var(--track-bg);
+            background: var(--surface);
             overflow: hidden;
         }
 
-        .stat-bar {
-            height: 100%;
-            width: 0;
-            border-radius: 999px;
-            transition: width .6s ease;
-        }
-
-        .bar-kaela { background: linear-gradient(90deg, #ffc94d, #ff9d3f); }
-        .bar-kobo { background: linear-gradient(90deg, #5bb8ff, #3f7bff); }
-        .bar-zeta { background: linear-gradient(90deg, #b6c2cf, #7d8ea3); }
-
-        .btn-share {
-            background: linear-gradient(135deg, #a58bff, #6a5ae0);
-            color: #fff;
-            box-shadow: 0 8px 18px rgba(143, 123, 255, .35);
-        }
-
-        /* ---------- ikon svg ---------- */
-        .btn-play, .btn-action, #increment-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: .5rem;
-        }
-
-        .btn-play svg, .btn-action svg, #increment-btn svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-        }
-
-        .combo-badge { display: inline-flex; align-items: center; gap: .35rem; }
-        .combo-badge svg { width: 15px; height: 15px; }
-
-        .key-hint {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: .4rem;
-            flex-wrap: wrap;
-        }
-
-        .key-hint svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-        .subtitle svg {
-            width: 16px;
-            height: 16px;
-            vertical-align: -3px;
-            color: var(--accent-purple);
-        }
-
-        .modal-title { display: flex; align-items: center; gap: .5rem; }
-        .modal-title svg { width: 20px; height: 20px; }
-
-        .heart-icon {
-            width: 15px;
-            height: 15px;
-            vertical-align: -2px;
-            color: var(--accent-pink);
-            fill: currentColor;
-            stroke: none;
-        }
-
-        .particle svg { width: 22px; height: 22px; }
-        .particle.c1 { color: var(--accent-pink); }
-        .particle.c2 { color: var(--accent-purple); }
-        .particle.c3 { color: var(--accent-blue); }
-        .particle.c4 { color: #ffc94d; }
+        .stat-bar { height: 100%; width: 0; transition: width .6s ease; }
+        .bar-kaela { background: var(--kaela); }
+        .bar-kobo { background: var(--kobo); }
+        .bar-zeta { background: var(--zeta); }
 
         /* ---------- footer ---------- */
-        .footer-wrap {
+        .site-footer { margin-top: 2.75rem; }
+
+        .footer-tabs {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: .8rem;
-            padding: 1.5rem 1rem .5rem;
+            align-items: flex-end;
+            gap: .55rem;
+            padding: 0 .75rem;
+            border-bottom: 2px solid var(--ink);
         }
 
         .footer-btn {
             display: inline-flex;
             align-items: center;
-            gap: .6rem;
-            padding: .7rem 1.6rem;
-            border-radius: 999px;
-            border: 1px solid var(--card-border);
-            background: var(--footer-btn-bg);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--text);
-            font-weight: 800;
+            gap: .5rem;
+            padding: .55rem 1.1rem .65rem;
+            border: 2px solid var(--ink);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            background: var(--surface);
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: transform .25s ease, box-shadow .25s ease, color .25s ease, background .5s ease;
+            margin-bottom: -2px;
+            transition: background .2s ease, color .2s ease;
         }
 
-        .footer-btn:hover {
-            transform: translateY(-3px);
-            color: var(--accent-purple);
-            box-shadow: 0 10px 22px rgba(143, 123, 255, .25);
-        }
+        .footer-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+        .footer-btn:hover { background: var(--ink); color: var(--sun); }
+
+        .footer-body { padding: 1.1rem .75rem 1.75rem; }
 
         .credit-line {
-            width: 100%;
             text-align: center;
-            color: var(--text-soft);
-            font-weight: 600;
-            font-size: .9rem;
-            margin-top: .8rem;
+            color: var(--ink-soft);
+            font-weight: 700;
+            font-size: .82rem;
+            margin: 0;
+        }
+
+        .heart-icon {
+            width: 13px;
+            height: 13px;
+            vertical-align: -2px;
+            color: var(--pop);
+            fill: currentColor;
+            stroke: none;
         }
 
         /* ---------- modal ---------- */
         .modal-content {
-            border: none;
-            border-radius: 1.25rem;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--modal-bg);
-            color: var(--text);
-            box-shadow: var(--shadow-soft);
+            background: var(--surface);
+            color: var(--ink);
+            box-shadow: 10px 10px 0 var(--shadow-c);
         }
 
-        .modal-header {
-            border-bottom: 1px solid var(--track-border);
-            background: var(--modal-muted);
+        .modal-header { border-bottom: 2px solid var(--ink); }
+        .modal-footer { border-top: 2px solid var(--ink); gap: .5rem; }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 1.02rem;
         }
 
-        .modal-footer { border-top: 1px solid var(--track-border); }
+        .modal-title svg { width: 18px; height: 18px; color: var(--pop); flex-shrink: 0; }
 
-        .modal-title { font-weight: 900; }
+        body.dark .btn-close { filter: invert(1); }
 
-        .modal-body h5 { font-weight: 900; }
+        .modal-body h5 {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .7rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .credit-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .75rem;
+            flex-wrap: wrap;
+            padding: .55rem 0;
+            border-bottom: 1px dashed var(--ink-soft);
+        }
+
+        .credit-item:last-child { border-bottom: none; }
+
+        .credit-item .who { font-weight: 700; font-size: .92rem; }
+
+        .src-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            padding: .32rem .8rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 3px 3px 0 var(--shadow-c);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .src-chip:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--shadow-c); }
+
+        .chip-yt { background: var(--alert); color: #fffdf6; }
+        .chip-yt:hover { background: var(--alert); color: #fffdf6; }
+        .chip-ink { background: var(--surface); color: var(--ink); }
+        .chip-ink:hover { background: var(--ink); color: var(--sun); }
+
+        .opt-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: .68rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .form-select {
+            background-color: var(--surface);
+            color: var(--ink);
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            font-weight: 700;
+        }
 
         body.dark .form-select {
-            background-color: #322a66;
-            color: var(--text);
-            border-color: rgba(255, 255, 255, .15);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f3eadb' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        }
+
+        /* ---------- sweetalert2 ---------- */
+        .swal2-popup {
+            font-family: var(--font-body) !important;
+            border: 2px solid var(--ink) !important;
+            border-radius: 16px !important;
+            background: var(--surface) !important;
+            color: var(--ink) !important;
+            box-shadow: 8px 8px 0 var(--shadow-c) !important;
+        }
+
+        .swal2-title { font-family: var(--font-display) !important; font-size: 1.35rem !important; }
+
+        .swal2-styled {
+            border: 2px solid var(--ink) !important;
+            border-radius: 10px !important;
+            box-shadow: 3px 3px 0 var(--shadow-c) !important;
+            font-family: var(--font-mono) !important;
+            font-weight: 700 !important;
+            letter-spacing: .05em;
+        }
+
+        .swal2-confirm { background: var(--sun) !important; color: #282331 !important; }
+        .swal2-cancel { background: var(--surface) !important; color: var(--ink) !important; }
+        body.dark .swal2-confirm { color: #201b2e !important; }
+
+        .swal2-toast {
+            border: 2px solid var(--ink) !important;
+            border-radius: 12px !important;
+            box-shadow: 4px 4px 0 var(--shadow-c) !important;
         }
 
         /* ---------- scrollbar ---------- */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--paper); }
         ::-webkit-scrollbar-thumb {
+            background: var(--ink-soft);
+            border: 3px solid var(--paper);
             border-radius: 999px;
-            background: linear-gradient(180deg, var(--accent-pink), var(--accent-purple));
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+
+        /* ---------- responsif & aksesibilitas ---------- */
+        @media (max-width: 576px) {
+            .game-arena { padding: 1.5rem .9rem 1.75rem; }
+            .counter-ticket { flex-direction: column; }
+            .ticket-stub { border-left: none; border-top: 2px dashed var(--ink); flex-direction: row; }
+            .card-kaela, .card-kobo, .card-zeta { transform: none; }
+            .char-card { width: min(20rem, 100%); }
         }
 
-        @media (max-width: 576px) {
-            .header-gif { width: 64px; }
-            .game-arena { padding: 1.5rem 1rem; border-radius: 1.5rem; }
+        @media (prefers-reduced-motion: reduce) {
+            .tape-track, .multiplier-badge.m5, #counter.pop { animation: none !important; }
+            .particle, .float-text { display: none; }
         }
     </style>
 </head>
 
 <body>
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
 
-    <header class="container-fluid pt-4 pb-2">
-        <div class="d-flex text-center justify-content-center align-items-center gap-3 flex-wrap">
-            <img src="aset/img/kaela.gif" alt="Kaela" class="header-gif">
-            <h1 class="judul-utama" data-i18n="welcome">~ Selamat datang di Vtuber Kuru ~</h1>
-            <img src="aset/img/zeta.gif" alt="Zeta" class="header-gif delay">
-        </div>
-        <p class="subtitle text-center"><span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-                <path d="M20 3v4" />
-                <path d="M22 5h-4" />
-                <path d="M4 17v2" />
-                <path d="M5 18H3" />
-            </svg>
-        </p>
-    </header>
-
-    <main class="game-arena container">
-        <div class="row">
-            <div class="col-12 text-center judul-wrap">
-                <span class="judul" data-i18n="choose_char">Pilih Karakter Vtuber</span>
+    <header class="site-header container">
+        <div class="header-inner">
+            <div class="brand">
+                <span class="eyebrow">Hololive Indonesia &mdash; Gen 3</span>
+                <h1 class="judul-utama">VTUBER KURU</h1>
+                <p class="subtitle"><span data-i18n="welcome">~ Selamat datang di Vtuber Kuru ~</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                        <path d="M20 3v4" />
+                        <path d="M22 5h-4" />
+                        <path d="M4 17v2" />
+                        <path d="M5 18H3" />
+                    </svg>
+                </p>
             </div>
         </div>
+    </header>
+
+    <div class="tape" aria-hidden="true">
+        <div class="tape-track">
+            <div class="tape-group">
+                <span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="kuru_kuru">Kuru Kuru</span><span class="sep">&#9733;</span>
+                <span data-i18n="kururin">Kururin</span><span class="sep">&#9733;</span>
+                <span data-i18n="kira_kira">Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="kuru_kuru">Kuru Kuru</span><span class="sep">&#9733;</span>
+                <span data-i18n="kururin">Kururin</span><span class="sep">&#9733;</span>
+                <span data-i18n="kira_kira">Kira Kira</span><span class="sep">&#9733;</span>
+            </div>
+            <div class="tape-group">
+                <span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="kuru_kuru">Kuru Kuru</span><span class="sep">&#9733;</span>
+                <span data-i18n="kururin">Kururin</span><span class="sep">&#9733;</span>
+                <span data-i18n="kira_kira">Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="subtitle">Kuru Kuru &bull; Kururin &bull; Kira Kira</span><span class="sep">&#9733;</span>
+                <span data-i18n="kuru_kuru">Kuru Kuru</span><span class="sep">&#9733;</span>
+                <span data-i18n="kururin">Kururin</span><span class="sep">&#9733;</span>
+                <span data-i18n="kira_kira">Kira Kira</span><span class="sep">&#9733;</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="game-arena container">
+        <div class="judul-wrap">
+            <span class="judul" data-i18n="choose_char">Pilih Karakter Vtuber</span>
+        </div>
+
         <div class="menu-utama">
-            <div class="row mt-2">
-                <div class="d-flex justify-content-evenly flex-wrap text-center gap-2">
-                    <div class="card char-card card-kaela mt-3">
-                        <div class="card-img-wrap">
-                            <img src="aset/img/kaela.gif" alt="Kaela Kovalskia">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Kaela Kovalskia</h5>
-                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-kaela">⛏️ <span data-i18n="play">Mulai Bermain</span></a>
-                        </div>
+            <div class="char-row">
+                <div class="char-card card-kaela">
+                    <div class="card-head">
+                        <span class="card-name">Kaela Kovalskia</span>
+                        <span class="card-gen">GEN 3</span>
                     </div>
-
-                    <div class="card char-card card-kobo mt-3">
-                        <div class="card-img-wrap">
-                            <img src="aset/img/kobo.gif" alt="Kobo Kanaeru">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Kobo Kanaeru</h5>
-                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-kobo">☔ <span data-i18n="play">Mulai Bermain</span></a>
-                        </div>
+                    <div class="card-img-wrap">
+                        <img src="aset/img/kaela.gif" alt="Kaela Kovalskia">
                     </div>
+                    <div class="card-body">
+                        <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                        <span class="char-tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.531 12.469 6.619 20.38a1 1 0 1 1-3-3l7.912-7.912" />
+                                <path d="m15 3 6 6" />
+                                <path d="m13 5 6 6" />
+                                <path d="M9 16c-2.5 0-5-2.5-6-4.5 2.136-.63 4-2 4.5-4.5 2.5 1 4.5 3.5 4.5 6" />
+                            </svg>
+                            BLACKSMITH</span><br>
+                        <a href="#" class="btn-play play-kaela">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.531 12.469 6.619 20.38a1 1 0 1 1-3-3l7.912-7.912" />
+                                <path d="m15 3 6 6" />
+                                <path d="m13 5 6 6" />
+                                <path d="M9 16c-2.5 0-5-2.5-6-4.5 2.136-.63 4-2 4.5-4.5 2.5 1 4.5 3.5 4.5 6" />
+                            </svg>
+                            <span data-i18n="play">Mulai Bermain</span>
+                        </a>
+                    </div>
+                </div>
 
-                    <div class="card char-card card-zeta mt-3">
-                        <div class="card-img-wrap">
-                            <img src="aset/img/zeta.gif" alt="Vestia Zeta">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Vestia Zeta</h5>
-                            <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
-                            <a href="#" class="btn-play play-zeta">🔍 <span data-i18n="play">Mulai Bermain</span></a>
-                        </div>
+                <div class="char-card card-kobo">
+                    <div class="card-head">
+                        <span class="card-name">Kobo Kanaeru</span>
+                        <span class="card-gen">GEN 3</span>
+                    </div>
+                    <div class="card-img-wrap">
+                        <img src="aset/img/kobo.gif" alt="Kobo Kanaeru">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                        <span class="char-tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12a10.06 10.06 0 0 0-20 0Z" />
+                                <path d="M12 12v8a2 2 0 0 0 4 0" />
+                                <path d="M12 2v2" />
+                            </svg>
+                            RAIN SHAMAN</span><br>
+                        <a href="#" class="btn-play play-kobo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12a10.06 10.06 0 0 0-20 0Z" />
+                                <path d="M12 12v8a2 2 0 0 0 4 0" />
+                                <path d="M12 2v2" />
+                            </svg>
+                            <span data-i18n="play">Mulai Bermain</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="char-card card-zeta">
+                    <div class="card-head">
+                        <span class="card-name">Vestia Zeta</span>
+                        <span class="card-gen">GEN 3</span>
+                    </div>
+                    <div class="card-img-wrap">
+                        <img src="aset/img/zeta.gif" alt="Vestia Zeta">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" data-i18n="char_desc">Vtuber Hololive ID Gen 3</p>
+                        <span class="char-tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                            SECRET AGENT</span><br>
+                        <a href="#" class="btn-play play-zeta">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                            <span data-i18n="play">Mulai Bermain</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="gameplay">
-            <div class="row">
-                <div class="col-12 text-center">
+            <div class="counter-ticket">
+                <div class="ticket-main">
+                    <span class="counter-label" data-i18n="counter_label">Kali</span>
                     <div id="counter">0</div>
-                    <div class="counter-label" data-i18n="counter_label">Kali</div>
-                    <div class="combo-badges">
-                        <span class="combo-badge" id="combo-badge">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-                            </svg>
-                            <span id="combo-count">0</span> <span data-i18n="combo">Kombo</span>
-                        </span>
-                        <span class="multiplier-badge" id="multiplier-badge">×1</span>
-                    </div>
-                    <div id="character"></div>
-                    <button id="increment-btn">
-                        <span class="btn-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="23 4 23 10 17 10" />
-                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-                            </svg>
-                        </span>
-                        <span class="btn-label" data-i18n="press_btn">Pencet Kurunya!</span>
-                    </button>
-                    <div class="combo-bar-wrap"><div id="combo-bar"></div></div>
-                    <div class="key-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                            <path d="M9 18h6" />
-                            <path d="M10 22h4" />
-                        </svg>
-                        <span data-i18n-html="key_hint">Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih cepat!</span>
-                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <div class="barcode" aria-hidden="true"></div>
+                    <span class="stub-label">VTUBER&#9733;KURU</span>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-12 d-flex justify-content-center gap-3">
-                    <button class="btn-action btn-kembali kembali">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12" />
-                            <polyline points="12 19 5 12 12 5" />
+
+            <div class="combo-badges">
+                <span class="combo-badge" id="combo-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+                    </svg>
+                    <span id="combo-count">0</span> <span data-i18n="combo">Kombo</span>
+                </span>
+                <span class="multiplier-badge" id="multiplier-badge">&times;1</span>
+            </div>
+
+            <div id="character"></div>
+
+            <div class="text-center">
+                <button id="increment-btn">
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10" />
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
                         </svg>
-                        <span data-i18n="back">Kembali</span>
-                    </button>
-                    <button class="btn-action btn-share share-count">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3" />
-                            <circle cx="6" cy="12" r="3" />
-                            <circle cx="18" cy="19" r="3" />
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                        </svg>
-                        <span data-i18n="share">Share</span>
-                    </button>
-                    <button class="btn-action btn-reset reset-count">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="1 4 1 10 7 10" />
-                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
-                        </svg>
-                        <span data-i18n="reset">Reset</span>
-                    </button>
-                </div>
+                    </span>
+                    <span class="btn-label" data-i18n="press_btn">Pencet Kurunya!</span>
+                </button>
+            </div>
+
+            <div class="combo-bar-wrap"><div id="combo-bar"></div></div>
+
+            <div class="key-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                    <path d="M9 18h6" />
+                    <path d="M10 22h4" />
+                </svg>
+                <span data-i18n-html="key_hint">Tips: tekan <kbd>Spasi</kbd> atau <kbd>Enter</kbd> buat pencet lebih
+                    cepat!</span>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                <button class="btn-action btn-kembali kembali">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12" />
+                        <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                    <span data-i18n="back">Kembali</span>
+                </button>
+                <button class="btn-action btn-share share-count">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3" />
+                        <circle cx="6" cy="12" r="3" />
+                        <circle cx="18" cy="19" r="3" />
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                    </svg>
+                    <span data-i18n="share">Share</span>
+                </button>
+                <button class="btn-action btn-reset reset-count">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                    </svg>
+                    <span data-i18n="reset">Reset</span>
+                </button>
             </div>
         </div>
 
     </main>
 
-    <footer class="footer-wrap container">
-        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#credit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-book-image">
-                <path d="m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17" />
-                <path
-                    d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-                <circle cx="10" cy="8" r="2" />
-            </svg>
-            <span data-i18n="footer_credit">Tampilkan Kredit</span>
-        </button>
+    <footer class="site-footer">
+        <div class="container">
+            <nav class="footer-tabs">
+                <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#credit">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17" />
+                        <path
+                            d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                        <circle cx="10" cy="8" r="2" />
+                    </svg>
+                    <span data-i18n="footer_credit">Tampilkan Kredit</span>
+                </button>
 
-        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#statsModal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-bar-chart-3">
-                <path d="M3 3v18h18" />
-                <path d="M18 17V9" />
-                <path d="M13 17V5" />
-                <path d="M8 17v-3" />
-            </svg>
-            <span data-i18n="footer_stats">Statistik</span>
-        </button>
+                <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#statsModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18" />
+                        <path d="M18 17V9" />
+                        <path d="M13 17V5" />
+                        <path d="M8 17v-3" />
+                    </svg>
+                    <span data-i18n="footer_stats">Statistik</span>
+                </button>
 
-        <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#optionsModal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-settings">
-                <path
-                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-                <circle cx="12" cy="12" r="3" />
-            </svg>
-            <span data-i18n="footer_settings">Pengaturan</span>
-        </button>
+                <button class="footer-btn" data-bs-toggle="modal" data-bs-target="#optionsModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    <span data-i18n="footer_settings">Pengaturan</span>
+                </button>
 
-        <a href="https://github.com/jauhariel/vtuber-kuru" target="_blank" class="footer-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-github">
-                <path
-                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-            <span data-i18n="footer_github">Github Repo</span>
-        </a>
-
-        <p class="credit-line" data-i18n-html="credit_line">Dibuat dengan 💜 oleh <strong>jauhariel</strong></p>
+                <a href="https://github.com/jauhariel/vtuber-kuru" target="_blank" rel="noopener" class="footer-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    <span data-i18n="footer_github">Github Repo</span>
+                </a>
+            </nav>
+            <div class="footer-body">
+                <p class="credit-line" data-i18n-html="credit_line">Dibuat dengan {heart} oleh
+                    <strong>jauhariel</strong></p>
+            </div>
+        </div>
     </footer>
 
     <div class="modal fade" id="credit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="creditLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="creditLabel" data-i18n="credit_title">Kredit/Sumber</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <h5>Audio</h5>
-                            <div>Kaela :</div>
-                            <a class="btn btn-danger" href="https://youtu.be/F34uzIu1U4w" target="_blank">Youtube |
-                                Happy
-                                U</a>
-
-                            <div class="mt-2">Kobo :</div>
-                            <a class="btn btn-danger" href="https://youtu.be/8XA2BR_FWpw" target="_blank">Youtube |
-                                Shirone
-                                Kun</a>
-
-                            <div class="mt-2">Zeta :</div>
-                            <a class="btn btn-danger" href="https://youtu.be/ao2UzdDfg20" target="_blank">Youtube |
-                                Xuchan
-                                Chanel</a>
-                        </div>
+                    <h5>Audio</h5>
+                    <div class="credit-item">
+                        <span class="who">Kaela &mdash; Happy U</span>
+                        <a class="src-chip chip-yt" href="https://youtu.be/F34uzIu1U4w" target="_blank"
+                            rel="noopener">YouTube</a>
+                    </div>
+                    <div class="credit-item">
+                        <span class="who">Kobo &mdash; Shirone Kun</span>
+                        <a class="src-chip chip-yt" href="https://youtu.be/8XA2BR_FWpw" target="_blank"
+                            rel="noopener">YouTube</a>
+                    </div>
+                    <div class="credit-item">
+                        <span class="who">Zeta &mdash; Xuchan Chanel</span>
+                        <a class="src-chip chip-yt" href="https://youtu.be/ao2UzdDfg20" target="_blank"
+                            rel="noopener">YouTube</a>
                     </div>
 
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <h5>Gif</h5>
-                            <div>Kaela:</div>
-                            <a class="btn btn-primary"
-                                href="https://tenor.com/view/kurukuru-kuru-kaela-hololive-holoid-gif-669340807167221053"
-                                target="_blank">Tenor Gif</a>
-
-                            <div class="mt-2">Kobo:</div>
-                            <a class="btn btn-warning"
-                                href="https://cutecafe.art/gif/hololive-gif/kobo-kuru-kuru-kururin/"
-                                target="_blank">CuteCafe-Cute.Art</a>
-
-                            <div class="mt-2">Zeta:</div>
-                            <a class="btn btn-dark" href="https://x.com/SK29Rin/status/1660408771049402375"
-                                target="_blank">X/twitter | Rin</a>
-                        </div>
+                    <h5 class="mt-3">Gif</h5>
+                    <div class="credit-item">
+                        <span class="who">Kaela</span>
+                        <a class="src-chip chip-ink"
+                            href="https://tenor.com/view/kurukuru-kuru-kaela-hololive-holoid-gif-669340807167221053"
+                            target="_blank" rel="noopener">Tenor Gif</a>
+                    </div>
+                    <div class="credit-item">
+                        <span class="who">Kobo</span>
+                        <a class="src-chip chip-ink"
+                            href="https://cutecafe.art/gif/hololive-gif/kobo-kuru-kuru-kururin/"
+                            target="_blank" rel="noopener">CuteCafe</a>
+                    </div>
+                    <div class="credit-item">
+                        <span class="who">Zeta</span>
+                        <a class="src-chip chip-ink" href="https://x.com/SK29Rin/status/1660408771049402375"
+                            target="_blank" rel="noopener">X / Rin</a>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -956,8 +1288,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="statsModalLabel">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 3v18h18" />
                             <path d="M18 17V9" />
                             <path d="M13 17V5" />
@@ -970,12 +1302,19 @@
                     <div class="stat-total-box">
                         <div class="stat-total-label" data-i18n="total_kuru">Total Kuru Semua Karakter</div>
                         <div class="stat-total-num" id="stat-total">0</div>
-                        <span class="stat-rank" id="stat-rank">Kuru Newbie</span>
+                        <span class="stat-rank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <span id="stat-rank">Kuru Newbie</span>
+                        </span>
                     </div>
 
                     <div class="stat-row">
                         <div class="stat-row-head">
-                            <img src="aset/img/kaela.gif" alt="Kaela" class="stat-ava ava-kaela">
+                            <img src="aset/img/kaela.gif" alt="Kaela" class="stat-ava">
                             <span class="stat-name">Kaela Kovalskia</span>
                             <span class="stat-count"><span id="stat-count-kaela">0</span> <small class="stat-pct"
                                     id="stat-pct-kaela">0%</small></span>
@@ -987,7 +1326,7 @@
 
                     <div class="stat-row">
                         <div class="stat-row-head">
-                            <img src="aset/img/kobo.gif" alt="Kobo" class="stat-ava ava-kobo">
+                            <img src="aset/img/kobo.gif" alt="Kobo" class="stat-ava">
                             <span class="stat-name">Kobo Kanaeru</span>
                             <span class="stat-count"><span id="stat-count-kobo">0</span> <small class="stat-pct"
                                     id="stat-pct-kobo">0%</small></span>
@@ -999,7 +1338,7 @@
 
                     <div class="stat-row">
                         <div class="stat-row-head">
-                            <img src="aset/img/zeta.gif" alt="Zeta" class="stat-ava ava-zeta">
+                            <img src="aset/img/zeta.gif" alt="Zeta" class="stat-ava">
                             <span class="stat-name">Vestia Zeta</span>
                             <span class="stat-count"><span id="stat-count-zeta">0</span> <small class="stat-pct"
                                     id="stat-pct-zeta">0%</small></span>
@@ -1011,8 +1350,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-action btn-share" id="share-total">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="18" cy="5" r="3" />
                             <circle cx="6" cy="12" r="3" />
                             <circle cx="18" cy="19" r="3" />
@@ -1036,14 +1375,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="theme-select" class="fw-bold mb-2" data-i18n="choose_theme">Pilih Tema:</label>
+                        <label for="theme-select" class="opt-label mb-2" data-i18n="choose_theme">Pilih Tema:</label>
                         <select id="theme-select" class="form-select">
                             <option value="light" data-i18n="light_mode">Light Mode</option>
                             <option value="dark" data-i18n="dark_mode">Dark Mode</option>
                         </select>
                     </div>
                     <div>
-                        <label for="lang-select" class="fw-bold mb-2" data-i18n="choose_lang">Pilih Bahasa:</label>
+                        <label for="lang-select" class="opt-label mb-2" data-i18n="choose_lang">Pilih Bahasa:</label>
                         <select id="lang-select" class="form-select">
                             <option value="id">Bahasa Indonesia</option>
                             <option value="en">English</option>
@@ -1307,9 +1646,9 @@
             const SVG_OPEN = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
             const ICONS = {
                 spin: SVG_OPEN + '<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
-                sparkles: SVG_OPEN + '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>',
-                star: SVG_OPEN + '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-                music: SVG_OPEN + '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+                sparkles: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.8l2.5 7.7 7.7 2.5-7.7 2.5L12 22.2l-2.5-7.7-7.7-2.5 7.7-2.5L12 1.8z"/></svg>',
+                star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+                dot: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>',
                 heart: SVG_OPEN + '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
                 heartSm: '<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
             };
@@ -1340,7 +1679,7 @@
             // Efek partikel emoji meledak dari titik (x, y)
             function spawnParticles(x, y, amount) {
                 if ($('.particle').length > 60) return; // batasi agar tidak berat
-                const icons = [ICONS.sparkles, ICONS.star, ICONS.music, ICONS.heart];
+                const icons = [ICONS.sparkles, ICONS.star, ICONS.dot, ICONS.heart];
                 const colors = ['c1', 'c2', 'c3', 'c4'];
                 for (let i = 0; i < amount; i++) {
                     const angle = Math.random() * Math.PI * 2;
